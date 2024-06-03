@@ -1,6 +1,6 @@
-import MarketNavbar from "../Components/marketnavbar"
+import Nav from "../Components/Nav"
 export default function Market(){
     return <>
-    <MarketNavbar />
+    <Nav />
     </>
 }
