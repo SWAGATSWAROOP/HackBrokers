@@ -18,11 +18,6 @@ export default async function Navbar() {
           </Link>
         </div>
         <div className="flex items-end">
-          {session && (
-            <h1 className="text-m mr-4 pr-5 font-serif font-bold">
-              Hello {session?.user?.name} !😊
-            </h1>
-          )}
           <AuthButtons />
         </div>
       </div>

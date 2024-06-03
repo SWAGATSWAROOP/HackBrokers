@@ -60,10 +60,10 @@ export default function SignUpComponent() {
         { headers: { "Content-type": "application-json" } },
       );
       toast({
-        title: "Hello From NexMeet",
+        title: "Hello From Hackrokers",
         description: "Sign Up Successful",
       });
-      router.push("/admin");
+      router.push("/");
     } catch (err) {
       console.log(err);
       toast({
