@@ -20,6 +20,7 @@
     "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "ethers": "^6.12.2",
     "lucide-react": "^0.363.0",
     "micro-cors": "^0.1.1",
     "nanoid": "^5.0.6",
