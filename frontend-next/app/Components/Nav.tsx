@@ -7,9 +7,8 @@ import Image from "next/image";
 
 export default function Nav() {
   const router = useRouter();
-  const [showMenu, setShowMenu] = useState(false);
   return (
-    <>
+  <>
       <div className="fixed left-0 right-0 top-0 z-10 border-b bg-gray-800 py-2">
         <div className="container mx-auto flex items-center justify-between px-4">
           <div className="flex items-center">
@@ -84,12 +83,12 @@ export default function Nav() {
       </div>
       <div className="grid grid-cols-2 gap-4 p-20">
       <div className="max-w-sm overflow-hidden rounded shadow-lg">
-      <img class="w-full" src="" alt="">
         <div className="px-6 py-4">
           <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Buy Crypto</div>
           <p className="text-base  text-white text-xl text-center">
           BUY BTC, ETH, and other crypto easily via bank transfer
           </p>
+          <Image src="/portfolio3.png" alt="image" width={500} height={200}/>
         </div>
         <div className="px-6 pb-2 pt-4">
           <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
@@ -106,6 +105,7 @@ export default function Nav() {
           <p className="text-base  text-white text-xl text-center">
           Grow your portfolio automatically with daily, weekly, or monthly trades.
           </p>
+          <Image src="/phone2.webp" alt='image' width={300} height={100}/>
           <br />
           <ul className="list-none p-0 text-white text-xl text-center">
               <li>BTC Bitcoin +500.00 1.2%</li>
@@ -128,7 +128,8 @@ export default function Nav() {
           </span>
         </div>
       </div>
-      <div className="max-w-sm overflow-hidden rounded shadow-lg">
+      <div className="flex flex-row mt-25 ml-20 ">
+      <div className="max-w-sm overflow-hidden rounded shadow-lg ">
         <div className="px-6 py-4">
           <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Price Alert</div>
           <p className="text-base  text-white text-xl text-center">
@@ -147,7 +148,7 @@ export default function Nav() {
           </span>
         </div>
       </div>
-      <div className="max-w-sm overflow-hidden rounded shadow-lg">
+      <div className="max-w-sm overflow-hidden rounded shadow-lg ">
         <div className="px-6 py-4">
           <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Trade on the go, Anywhere, anytime.</div>
           <p className="text-base text-white text-xl text-center">
@@ -167,6 +168,6 @@ export default function Nav() {
         </div>
       </div>
       </div>
+      </div>
     </>
-  );
-}
+);}
