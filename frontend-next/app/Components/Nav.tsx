@@ -24,6 +24,9 @@ export default function Nav() {
             <Link href="/market" className="mx-2 font-serif text-white">
               Market
             </Link>
+            <Link href="/trade" className="mx-2 font-serif text-white">
+              Trade
+            </Link>
             <Link href="/about" className="mx-2 font-serif text-white">
               About
             </Link>
@@ -43,6 +46,7 @@ export default function Nav() {
             >
               Market
             </Link>
+            
             <Link
               href="/about"
               className="block px-4 py-2 font-serif text-white"
@@ -97,9 +101,9 @@ export default function Nav() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-1 lg:grid-cols-2">
         <div className="max-w-sm overflow-hidden rounded shadow-lg">
-          <div className="px-6 py-4">
+          <div className="px-4 py-4 ml-20">
             <div className="mb-2 text-xl font-bold text-white">
               <h3>Buy Crypto</h3>
               <p>BUY BTC, ETH, and other crypto easily via bank transfer</p>
