@@ -1,0 +1,185 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2a2a2a;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.login-button {
+    background-color: #bada55;
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.main-content {
+    text-align: left;
+    padding: 7rem;
+}
+.hero{
+    float: left;
+    clear:right;
+}
+.mainphone{
+    float: right;
+    height: 40vw;
+}
+.hero h1 {
+    font-size: 3vw;
+}
+
+.hero h2 {
+    font-size: 5vw;
+}
+
+.hero p {
+    font-size: 2vw;
+}
+
+.email-signup {
+    margin-top: 3vw;
+}
+
+.email-signup input {
+    width: 20vw;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    margin-right: 0.5rem;
+}
+
+.email-signup button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #bada55;
+    color: black;
+    cursor: pointer;
+}
+
+.features {
+    clear: both;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vw;
+    padding: 10px;
+    margin: 3vw 0;
+    margin-top: 10vw;
+}
+
+.feature {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+.feature img {
+    height: 20vw;
+}
+.feature ul {
+    list-style: none;
+    padding: 0;
+}
+
+.news {
+    background-color: #222;
+    padding: 2vw;
+    border-radius: 5px;
+    margin: 2rem 0;
+}
+
+.news h3 {
+    margin: 0.5rem 0;
+}
+
+.mobile-app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.mobile-app img {
+    max-width: 45vw;
+    border-radius: 5px;
+}
+
+.footer {
+    background-color: #2a2a2a;
+    padding: 2rem;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h4 {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 0.25rem 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 1rem;
+}
