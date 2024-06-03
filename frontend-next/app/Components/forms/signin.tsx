@@ -55,10 +55,10 @@ export default function SignInComponent() {
         router.push("/");
       } else {
         toast({
-          title: "Hello From NexMeet",
+          title: "Hello From HackBrokers",
           description: "Sign In Successful",
         });
-        router.push("/admin");
+        router.push("/");
       }
     } catch (err) {
       router.push("/AuthError");
