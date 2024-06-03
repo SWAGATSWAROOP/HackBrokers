@@ -21,9 +21,13 @@ export default function Nav() {
             </Link>
           </div>
           <div className="hidden items-center gap-x-4 md:flex">
-            <Link href="/market" className="mx-2 font-serif text-white">
+            <Link
+              href="https://crypto-sand-ten.vercel.app/"
+              className="mx-2 font-serif text-white"
+            >
               Market
             </Link>
+
             <Link href="/trade" className="mx-2 font-serif text-white">
               Trade
             </Link>
@@ -38,29 +42,6 @@ export default function Nav() {
             <AuthButtons />
           </div>
         </div>
-        {showMenu && (
-          <div className="bg-gray-800 py-2 md:hidden">
-            <Link
-              href="/market"
-              className="block px-4 py-2 font-serif text-white"
-            >
-              Market
-            </Link>
-            
-            <Link
-              href="/about"
-              className="block px-4 py-2 font-serif text-white"
-            >
-              About
-            </Link>
-            <Link
-              href="/more"
-              className="block px-4 py-2 font-serif text-white"
-            >
-              More
-            </Link>
-          </div>
-        )}
       </div>
       <div className="mt-16 flex flex-col items-center md:mt-20 md:flex-row">
         <section className="flex-1 md:ml-20 lg:ml-52">
@@ -101,61 +82,90 @@ export default function Nav() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-1 lg:grid-cols-2">
-        <div className="max-w-sm overflow-hidden rounded shadow-lg">
-          <div className="px-4 py-4 ml-20">
-            <div className="mb-2 text-xl font-bold text-white">
-              <h3>Buy Crypto</h3>
-              <p>BUY BTC, ETH, and other crypto easily via bank transfer</p>
-            </div>
-            <img src="buy.webp" alt="Buy" className="mx-auto h-52" />
-          </div>
+      <div className="grid grid-cols-2 gap-4 p-20">
+      <div className="max-w-sm overflow-hidden rounded shadow-lg">
+      <img class="w-full" src="" alt="">
+        <div className="px-6 py-4">
+          <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Buy Crypto</div>
+          <p className="text-base  text-white text-xl text-center">
+          BUY BTC, ETH, and other crypto easily via bank transfer
+          </p>
         </div>
-
-        <div className="max-w-sm overflow-hidden rounded shadow-lg">
-          <div className="px-6 py-4">
-            <div className="mb-2 text-xl font-bold text-white">
-              {" "}
-              <h3>Recurring Buy</h3>
-              <p>
-                Grow your portfolio automatically with daily, weekly, or monthly
-                trades.
-              </p>
-              
-            </div>
-            <img src="phone2.webp" alt="Recurring Buy" className="h-52 mx-auto" />
-          </div>
+        <div className="px-6 pb-2 pt-4">
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #crypto
+          </span>
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #blockchain
+          </span>
         </div>
-
-        <div className="max-w-sm overflow-hidden rounded shadow-lg">
-          <div className="px-6 py-4">
-            <div className="mb-2 text-xl font-bold text-white">
-              {" "}
-              <h3>Recurring Buy</h3>
-              <p>
-                Grow your portfolio automatically with daily, weekly, or monthly
-                trades.
-              </p>
-            </div>
-          </div>
+      </div>
+      <div className="max-w-sm overflow-hidden rounded shadow-lg">
+        <div className="px-6 py-4">
+          <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Recurring Buy</div>
+          <p className="text-base  text-white text-xl text-center">
+          Grow your portfolio automatically with daily, weekly, or monthly trades.
+          </p>
+          <br />
+          <ul className="list-none p-0 text-white text-xl text-center">
+              <li>BTC Bitcoin +500.00 1.2%</li>
+              <li>ETH Ethereum -200.00 -2%</li>
+              <li>BNB Bignbuilt +150.00 2.3%</li>
+              <li>ERT Ethorium +210.00 1.2%</li>
+              <li>TKV Totalkv -120.00 -0.08%</li>
+              <li>MKP Masterkop +233.00 2.5%</li>
+            </ul>
         </div>
-
-        <div className="max-w-sm overflow-hidden rounded shadow-lg">
-          <div className="px-6 py-4">
-            <div className="mb-2 text-xl font-bold text-white">
-              <h3>Price Alert</h3>
-              <p>Be notified on BTC, ETH prices and more</p>
-              <ul className="list-none p-0">
-                <li>BTC Bitcoin +500.00 1.2%</li>
-                <li>ETH Ethereum -200.00 -2%</li>
-                <li>BNB Bignbuilt +150.00 2.3%</li>
-                <li>ERT Ethorium +210.00 1.2%</li>
-                <li>TKV Totalkv -120.00 -0.08%</li>
-                <li>MKP Masterkop +233.00 2.5%</li>
-              </ul>
-            </div>
-          </div>
+        <div className="px-6 pb-2 pt-4">
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #photography
+          </span>
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #travel
+          </span>
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #winter
+          </span>
         </div>
+      </div>
+      <div className="max-w-sm overflow-hidden rounded shadow-lg">
+        <div className="px-6 py-4">
+          <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Price Alert</div>
+          <p className="text-base  text-white text-xl text-center">
+          Be notified on BTC, ETH prices and more
+          </p>
+        </div>
+        <div className="px-6 pb-2 pt-4">
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #photography
+          </span>
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #travel
+          </span>
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #winter
+          </span>
+        </div>
+      </div>
+      <div className="max-w-sm overflow-hidden rounded shadow-lg">
+        <div className="px-6 py-4">
+          <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Trade on the go, Anywhere, anytime.</div>
+          <p className="text-base text-white text-xl text-center">
+          Compatible with all browsers
+          </p>
+        </div>
+        <div className="px-6 pb-2 pt-4">
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #photography
+          </span>
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #travel
+          </span>
+          <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            #winter
+          </span>
+        </div>
+      </div>
       </div>
     </>
   );
