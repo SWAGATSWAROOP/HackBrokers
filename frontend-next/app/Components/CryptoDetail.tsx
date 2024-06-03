@@ -17,7 +17,7 @@ export default function CryptoDetails({ crypto, timeRange }) {
     }
   }, [crypto, timeRange]);
 
-  const fetchCryptoData = async (crypto, timeRange) => {
+  const fetchCryptoData = async (crypto:any, timeRange:any) => {
     setLoading(true);
     setError("");
     try {
@@ -34,8 +34,8 @@ export default function CryptoDetails({ crypto, timeRange }) {
       });
 
       const prices = chartResponse.data.prices;
-      const labels = prices.map(price => new Date(price[0]).toLocaleDateString());
-      const data = prices.map(price => price[1]);
+      const labels = prices.map((price :any)=> new Date(price[0]).toLocaleDateString());
+      const data = prices.map((price:any) => price[1]);
 
       setChartData({
         labels,
