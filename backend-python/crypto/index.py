@@ -17,39 +17,47 @@ cloudinary.config(
     api_key=os.getenv("API_KEY"),
     api_secret=os.getenv("API_SECRET")
 )
- 
+
 def image_generate(Type, days): 
     df = pd.read_csv(Type + '.csv', usecols=['Date', 'Close'])
-    with open(Type +'.pkl', 'rb') as f:
+    with open(Type + '.pkl', 'rb') as f:
         model = pickle.load(f)
     df['Date'] = pd.to_datetime(df['Date'], infer_datetime_format=True)
     for i in range(2):
         sma = ta.sma(df['Close'], length=5).iloc[-1]
         ema = ta.ema(df['Close'], length=5).iloc[-1]
-        rsi = ta.rsi(df['Close'], length=14).iloc[-1]  
-        new_close = model.predict([[sma, ema, rsi]]) 
+        rsi = ta.rsi(df['Close'], length=14).iloc[-1]
+        new_close = model.predict([[sma, ema, rsi]])
         new_date = df['Date'].iloc[-1] + timedelta(days=1)
         new_row = {
-                "Date": new_date,
-                "Close": new_close,
-                "SMA": sma,
-                "EMA": ema,
-                "RSI": rsi
-            }
+            "Date": new_date,
+            "Close": new_close,
+            "SMA": sma,
+            "EMA": ema,
+            "RSI": rsi
+        }
         df = pd.concat([df, pd.DataFrame(new_row)], ignore_index=True)
-    last_10_days = df.tail(days) 
+    last_10_days = df.tail(days)
+    
     plt.style.use('dark_background')
     plt.figure(figsize=(12, 6))
-    plt.plot(last_10_days['Date'], last_10_days['Close'], linestyle='-', color='b', )
-    plt.title( Type + ' Close Prices Over Time')
+    
+    # Plot all but the last two points
+    plt.plot(last_10_days['Date'][:-2], last_10_days['Close'][:-2], linestyle='-', color='b')
+    
+    # Highlight the last two points
+    plt.plot(last_10_days['Date'][-3:], last_10_days['Close'][-3:], linestyle='-', color='r', marker='o')
+    
+    plt.title(Type + ' Close Prices Over Time')
     plt.xlabel('Date')
     plt.ylabel('Close Price')
     plt.grid(True)
-    plt.savefig('btc_last_10_days.png') 
+    plt.savefig('btc_last_10_days.png')
     img_data = io.BytesIO()
     plt.savefig(img_data, format='png')
     img_data.seek(0)
     return img_data
+
  
 
 @app.route('/') 
