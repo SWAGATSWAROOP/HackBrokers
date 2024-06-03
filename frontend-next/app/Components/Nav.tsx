@@ -84,7 +84,7 @@ export default function Nav() {
       </div>
       <div className="grid grid-cols-2 gap-4 p-20">
       <div className="max-w-sm overflow-hidden rounded shadow-lg">
-      <img class="w-full" src="" alt="">
+      <Image className="ml-24" src="/buy.webp" alt="pic" width={200} height={200}></Image>
         <div className="px-6 py-4">
           <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Buy Crypto</div>
           <p className="text-base  text-white text-xl text-center">
@@ -101,6 +101,7 @@ export default function Nav() {
         </div>
       </div>
       <div className="max-w-sm overflow-hidden rounded shadow-lg">
+      <Image className="ml-24" src="/phone2.webp" alt="pic" width={200} height={200}></Image>
         <div className="px-6 py-4">
           <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Recurring Buy</div>
           <p className="text-base  text-white text-xl text-center">
@@ -129,6 +130,7 @@ export default function Nav() {
         </div>
       </div>
       <div className="max-w-sm overflow-hidden rounded shadow-lg">
+      <Image className="ml-24" src="/portfolio3.png" alt="pic" width={200} height={200}></Image>
         <div className="px-6 py-4">
           <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Price Alert</div>
           <p className="text-base  text-white text-xl text-center">
@@ -148,6 +150,7 @@ export default function Nav() {
         </div>
       </div>
       <div className="max-w-sm overflow-hidden rounded shadow-lg">
+      <Image className="ml-24" src="/buy.webp" alt="pic" width={200} height={200}></Image>
         <div className="px-6 py-4">
           <div className="mb-2 text-xl font-bold text-white text-2xl text-center">Trade on the go, Anywhere, anytime.</div>
           <p className="text-base text-white text-xl text-center">
