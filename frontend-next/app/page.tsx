@@ -1,9 +1,9 @@
-import React from 'react';
-import Nav from './Components/Nav';
+import HomeNavbar from "./Components/navbar";
+import Nav from "./Components/Nav";
+export default function Home(){
+  return <>
+  <Nav />
+  </>
+}
 
-const Page: React.FC = () => {
-  return <Nav/>
-    
-};
 
-export default Page;
