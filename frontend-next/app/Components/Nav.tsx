@@ -1,39 +1,12 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
+import Navbar2 from "./navbar2";
 export default function Nav() {
   const router = useRouter();
   return (
-    <div className="mt-[2350px]">
-      <header className="flex justify-between items-center p-4 bg-gray-800 text-white">
-        <div className="text-xl font-bold text-yellow-400">🅑🅔 CRYPTOxAI</div>
-        <nav className="flex items-center space-x-4">
-          <Link href="#search" aria-label="Search">
-            🔍
-          </Link>
-          <Link href="#market">Market</Link>
-          <Link href="#trade">Trade</Link>
-          <div className="relative group">
-            <Link href="#more">More▾</Link>
-            <div className="absolute hidden group-hover:block bg-gray-800 text-white rounded mt-1">
-              <Link href="#about" className="block px-4 py-2">About</Link>
-              <Link href="#contact" className="block px-4 py-2">Contact</Link>
-            </div>
-          </div>
-          <Link href="#about">About</Link>
-          <button
-            onClick={() => {
-              router.push("/signin");
-            }}
-            className="bg-green-400 text-black px-4 py-2 rounded"
-          >
-            Login
-          </button>
-        </nav>
-        <button className="text-white text-2xl">🌙</button>
-      </header>
-
+    <div className="mt-[2325px]">
+      <Navbar2 />
       <main className="text-left p-20">
         <section className="float-left clear-right">
             <div className="ml-52 font-bold"> 
@@ -90,14 +63,14 @@ export default function Nav() {
         </section>
 
         <section className="flex items-center justify-center gap-4 my-8">
-          <img src="portfolio3.png" alt="Mobile App" className="max-w-1/2 rounded" />
+          <img src="portfolio3.png" alt="Mobile App" className="w-80 rounded" />
           <div>
             <h3>Trade on the go, Anywhere, anytime.</h3>
             <p>Compatible with all browsers</p>
           </div>
         </section>
 
-        <section className="bg-gray-900 p-8 rounded my-8">
+        <section className="bg-gray-900 p-8 rounded my-8 text-white">
           <h2 className="text-xl">Latest News</h2>
           <p>Uniswap Foundation Delays Proposal Upgrade Vote</p>
           <p>European Bitcoin ETPs Face Losses Amid Rising US Competition</p>
