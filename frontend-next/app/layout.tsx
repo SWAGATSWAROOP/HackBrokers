@@ -19,7 +19,7 @@ export default async function RootLayout({
   console.log(session);
   return (
     <html lang="en">
-      <body className="bg-slate-200">
+      <body className="bg-black">
         <main className=" flex h-screen flex-col items-center justify-center ">
           <Provider session={session}>
             <div className="">{children}</div>
