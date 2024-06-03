@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, jsonify, send_file 
+from flask import Flask, request, jsonify, send_file, render_template
 import cloudinary
 import cloudinary.uploader 
 import pandas as pd
@@ -50,16 +50,21 @@ def image_generate(Type, days):
     plt.savefig(img_data, format='png')
     img_data.seek(0)
     return img_data
+ 
 
-
-@app.route('/')
+@app.route('/') 
 def home():
-    return "Home"
+    return render_template('index.html')
 
-@app.route('/upload', methods=['GET'])
+@app.route('/upload', methods=['GET', 'POST'])
 def upload(): 
+<<<<<<< HEAD
     Type = "eth"
     days = 20
+=======
+    Type = request.form['type']
+    days = int(request.form['days'])
+>>>>>>> 5a6dd52f8e0999325c4df24e29d9267d27ab28c8
     img = image_generate(Type, days)  
     response = cloudinary.uploader.upload(img)
     print(response) 

@@ -38,9 +38,9 @@
     position: relative;
   }
   
-  .more:hover .dropdown {
+  /* .more:hover .dropdown {
     display: block;
-  }
+  } */
   
   .dropdown {
     display: none;
