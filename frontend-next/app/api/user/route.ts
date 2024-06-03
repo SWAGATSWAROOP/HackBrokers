@@ -2,6 +2,8 @@ import { NextRequest } from "next/server";
 import prisma from "@/db";
 import { hash } from "bcrypt";
 import * as z from 'zod';
+import { ethers } from "ethers";
+import Account from "../../contracts/account.sol/Account.json"; 
 
 interface BodyType {
     Name: string
@@ -44,6 +46,15 @@ export async function POST(req: NextRequest) {
             }
         });
 
+        let provider = new ethers.JsonRpcProvider();
+        let signer = await provider.getSigner();
+        let contract = new ethers.Contract(
+          "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          Account.abi,
+          signer
+        );
+        const createUser = await contract.createUser(Name,username);
+        await createUser.wait();
         return Response.json({ user: newUser, message: "Signed up Successfully", status: 201 });
     } catch (error) {
         console.error("Error occurred while creating user:", error);
