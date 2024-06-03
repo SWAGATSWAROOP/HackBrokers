@@ -58,8 +58,8 @@ def home():
 
 @app.route('/upload', methods=['GET'])
 def upload(): 
-    Type = "btc"
-    days = 30
+    Type = "eth"
+    days = 20
     img = image_generate(Type, days)  
     response = cloudinary.uploader.upload(img)
     print(response) 
