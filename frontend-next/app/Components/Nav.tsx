@@ -19,9 +19,10 @@ export default function Nav() {
               </div>
             </div>
             <a href="#about">About</a>
-            <a href="#login" className="login-button">
-              Login
-            </a>
+            <button onClick={()=>{
+                router.push("/signin");
+            }} className="login-button"> Login</button>
+            
           </nav>
           <button className="theme-toggle">🌙</button>
         </header>
