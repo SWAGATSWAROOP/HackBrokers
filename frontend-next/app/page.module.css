@@ -1,0 +1,173 @@
+.container {
+    font-family: 'Arial, sans-serif';
+    color: white;
+    background-color: #0a0a0a;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2a2a2a;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .logoText {
+    color: #ffd700;
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .more {
+    position: relative;
+  }
+  
+  .more:hover .dropdown {
+    display: block;
+  }
+  
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 1.5rem;
+    background-color: #2a2a2a;
+    padding: 0.5rem;
+  }
+  
+  .dropdown a {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+  
+  .login {
+    background-color: #ffd700;
+    color: #0a0a0a;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+  
+  .main {
+    padding: 2rem;
+  }
+  
+  .hero {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .signup {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .emailInput {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .signupButton {
+    padding: 0.5rem;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+  
+  .feature {
+    flex: 1 1 30%;
+    background-color: #1a1a1a;
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .priceList {
+    text-align: left;
+    margin-top: 1rem;
+  }
+  
+  .priceList p {
+    margin: 0.5rem 0;
+  }
+  
+  .trade {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2rem 0;
+  }
+  
+  .appImage {
+    width: 200px;
+  }
+  
+  .footer {
+    background-color: #2a2a2a;
+    padding: 2rem 0;
+    text-align: center;
+  }
+  
+  .footerContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .footerLogo {
+    flex: 1 1 100%;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footerLinks {
+    display: flex;
+    justify-content: space-around;
+    flex: 1 1 100%;
+  }
+  
+  .footerLinks div {
+    margin: 0 1rem;
+  }
+  
+  .footerLinks h4 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footerLinks a {
+    display: block;
+    margin: 0.5rem 0;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footerCopyright {
+    flex: 1 1 100%;
+    margin-top: 1rem;
+  }
+  
