@@ -20,7 +20,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black">
-        <main className=" flex h-screen flex-col items-center justify-center ">
+        <main className=" flex h-screen flex-col">
           <Provider session={session}>
             <div className="">{children}</div>
           </Provider>
