@@ -29,7 +29,7 @@ export default function Nav() {
             <Link href="/trade" className="mx-24 font-serif text-white">
               Trade
             </Link>
-            <Link href="/about" className="mx-24 font-serif text-white">
+            <Link href="#about" className="mx-24 font-serif text-white">
               About
             </Link>
           </div>
@@ -120,7 +120,7 @@ export default function Nav() {
             <Image src="/img3.png" alt="image" width={620} height={640} />
             <div className="px-10 py-6">
               <div className="mb-4 text-center text-xl font-bold text-white">
-                Price Alert pb-5
+                Price Alert 
               </div>
               <p className="text-center text-base text-white">
                 Be notified on BTC, ETH prices and more
@@ -142,7 +142,7 @@ export default function Nav() {
             <Image src="/buy.webp" alt="image" width={620} height={640} />
             <div className="px-10 py-6">
               <div className="mb-4 text-center text-xl font-bold text-white">
-                Trade on the go pb-5
+                Trade on the go 
               </div>
               <p className="text-center text-base text-white">
                 Anywhere, anytime. Compatible with all browsers
