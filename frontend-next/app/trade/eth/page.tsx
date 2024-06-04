@@ -6,7 +6,6 @@ import Image from 'next/image';
 export default function ETHCARD() {
     const [days, setDays] = useState(7);
     const [imageUrl, setImageUrl] = useState('https://res.cloudinary.com/djtudleky/image/upload/v1717468043/ogib3zfczrxpyfeo6mod.png');
-
     useEffect(() => {
         const fetchImage = async () => {
             console.log("Change occured");
@@ -46,7 +45,6 @@ export default function ETHCARD() {
                         <div className="font-bold text-xl mb-2"> Etherium (ETH)</div>
                         <p className="text-gray-700 text-base">
                         Ethereum is a decentralized blockchain with smart contract functionality. Ether is the native cryptocurrency of the platform. Among cryptocurrencies, ether is second only to bitcoin in market capitalization. It is open-source software. Ethereum was conceived in 2013 by programmer Vitalik Buterin. 
-
                         </p>
                     </div>
                 </div>

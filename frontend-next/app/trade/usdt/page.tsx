@@ -1,8 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import Image from 'next/image';
-
+import axios from 'axios'; 
 export default function BitcoinCard() {
     const [days, setDays] = useState(7);
     const [imageUrl, setImageUrl] = useState('https://res.cloudinary.com/djtudleky/image/upload/v1717468043/ogib3zfczrxpyfeo6mod.png');
