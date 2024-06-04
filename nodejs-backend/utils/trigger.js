@@ -20,20 +20,20 @@ export const trigger = async () => {
     console.log(coinsData);
 
     // Iterate over each user
-    await Promise.allSettled(
-      users.map(async (user) => {
-        const email = user.email;
-        await Promise.allSettled(
-          user.coins.forEach(async (userCoin) => {
-            const currentPrice = coinsData[userCoin.name];
-            if (currentPrice && userCoin.price < currentPrice) {
-              // Send email if user's threshold is below the current price
-              await sendMail(email, userCoin);
-            }
-          })
-        );
-      })
-    );
+    // await Promise.allSettled(
+    //   users.map(async (user) => {
+    //     const email = user.email;
+    //     await Promise.allSettled(
+    //       user.coins.forEach(async (userCoin) => {
+    //         const currentPrice = coinsData[userCoin.name];
+    // if (currentPrice && userCoin.price < currentPrice) {
+    // Send email if user's threshold is below the current price
+    await sendMail("swagatsp.cs.21@nitj.ac.in", "Swagat");
+    //         // }
+    //       })
+    //     );
+    //   })
+    // );
   } catch (error) {
     console.error("Error in trigger function:", error);
   }

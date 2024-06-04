@@ -1,53 +1,48 @@
-"use client"
-import { useState } from 'react';
-import { useToast } from '../Components/ui/use-toast';
+"use client";
+import { useState } from "react";
+import { useToast } from "../Components/ui/use-toast";
+import prisma from "@/db";
+import { useRouter } from "next/navigation";
+import { ethers } from "ethers";
+import Account from "../contracts/account.sol/Account.json";
+
 export default function Deposit() {
-  const [accountNumber, setAccountNumber] = useState('');
-  const [username, setUsername] = useState('');
-  const [amount, setAmount] = useState('');
+  const [accountNumber, setAccountNumber] = useState("");
+  const [username, setUsername] = useState("");
+  const [amount, setAmount] = useState("");
   const { toast } = useToast();
+  const router = useRouter();
 
-  // async function onSubmit() {
-  //   const username = user.find((u) => u.username === username);
+  async function onSubmit() {
+    console.log(accountNumber, amount, username);
+    let provider = new ethers.JsonRpcProvider();
+    let signer = await provider.getSigner();
+    let contract = new ethers.Contract(
+      "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      Account.abi,
+      signer,
+    );
+    const deposit = await contract.deposit(username, amount);
+    await deposit.wait();
+    const existingUser = await prisma.user.findUnique({
+      where: {
+        username: username,
+      },
+    });
+    if (!existingUser) return;
+    console.log(existingUser?.Name);
+  }
 
-  //   if (!username) {
-  //     setMessage('User not found or account number does not match.');
-  //     return;
-  //   }
-  //   user.balance += parseFloat(amount);
-
-
-  //   await new Promise((resolve) => setTimeout(resolve, 500)); 
-
-  //   setMessage(`Successfully deposited ${amount} to ${username}'s account.`);
-
-  //   try {
-    
-  //     if (signindata?.error) {
-  //       console.log(signindata.error);
-  //       toast({
-  //         title: "Oops! Something Went Wrong",
-  //         description: "Error Signing In",
-  //       });
-  //       router.push("/");
-  //     } else {
-  //       toast({
-  //         title: "Hello From HackBrokers",
-  //         description: "Sign In Successful",
-  //       });
-  //       router.push("/");
-  //     }
-  //   } catch (err) {
-  //     router.push("/AuthError");
-  //   }
-  // }
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-        <h2 className="text-2xl font-bold mb-6 text-center">Deposit Money</h2>
+    <div className="flex min-h-screen items-center justify-center bg-gray-900">
+      <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
+        <h2 className="mb-6 text-center text-2xl font-bold">Deposit Money</h2>
         <form onSubmit={onSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="accountNumber">
+            <label
+              className="mb-2 block text-sm font-bold text-gray-700"
+              htmlFor="accountNumber"
+            >
               Account Number
             </label>
             <input
@@ -55,12 +50,15 @@ export default function Deposit() {
               id="accountNumber"
               value={accountNumber}
               onChange={(e) => setAccountNumber(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
               required
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+            <label
+              className="mb-2 block text-sm font-bold text-gray-700"
+              htmlFor="username"
+            >
               Username
             </label>
             <input
@@ -68,12 +66,15 @@ export default function Deposit() {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
               required
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="amount">
+            <label
+              className="mb-2 block text-sm font-bold text-gray-700"
+              htmlFor="amount"
+            >
               Amount
             </label>
             <input
@@ -81,14 +82,14 @@ export default function Deposit() {
               id="amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
               required
             />
           </div>
           <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
             >
               Deposit
             </button>
