@@ -11,7 +11,7 @@ const Auth_Layout: FC<Auth_LayoutProps> = ({ children }) => {
   return (
     <>
         <Navbar />
-        <div className="rounded-md bg-white p-10">{children}</div>
+        <div className="rounded-md bg-white p-10 items-center">{children}</div>
     </>
   );
 };
