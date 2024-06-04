@@ -20,21 +20,22 @@ export const trigger = async () => {
     console.log(coinsData);
 
     // Iterate over each user
-    users.map((user) => {
-      const email = user.email;
-      Promise.allSettled(
-        user.coins.forEach(async (userCoin) => {
-          const currentPrice = coinsData[userCoin.name];
-          if (currentPrice && userCoin.price < currentPrice) {
-            // Send email if user's threshold is below the current price
-            await sendMail(email, userCoin);
-          }
-        })
-      );
-    });
+    await Promise.allSettled(
+      users.map(async (user) => {
+        const email = user.email;
+        await Promise.allSettled(
+          user.coins.forEach(async (userCoin) => {
+            const currentPrice = coinsData[userCoin.name];
+            if (currentPrice && userCoin.price < currentPrice) {
+              // Send email if user's threshold is below the current price
+              await sendMail(email, userCoin);
+            }
+          })
+        );
+      })
+    );
   } catch (error) {
     console.error("Error in trigger function:", error);
-  } finally {
-    redis.disconnect();
   }
+  console.log("Successfully sent mails");
 };
