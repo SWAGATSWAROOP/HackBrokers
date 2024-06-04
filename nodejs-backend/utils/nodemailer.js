@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 export const sendMail = async (to_mail, coin) => {
   try {
     await transporter.sendMail({
-      from: process.env.MAIL, // sender address
+      from: "decentralizedhealthcare@gmail.com", // sender address
       to: to_mail, // list of receivers
       subject: `Price Has gone below your threshold`, // Subject line
       text: `${coin} has gone below your specified threshold`, // plain text body
