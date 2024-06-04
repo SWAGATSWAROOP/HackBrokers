@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
@@ -8,6 +8,7 @@ import Account from "../../contracts/account.sol/Account.json";
 import { useSession } from "next-auth/react";
 
 export default function BNBCard() {
+  const ref = useRef(null);
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState(
     "https://res.cloudinary.com/djtudleky/image/upload/v1717474425/bzpmv6wreqw1zd5lrced.png",
@@ -30,7 +31,7 @@ export default function BNBCard() {
     fetchImage();
   }, [days]);
 
-  async function click() {
+  async function buy() {
     const session = useSession();
     console.log(session);
     let provider = new ethers.JsonRpcProvider();
@@ -40,7 +41,21 @@ export default function BNBCard() {
       Account.abi,
       signer,
     );
-    const createUser = await contract.buy();
+    const email = sessionStorage.getItem("email");
+    const createUser = await contract.buy(email, 0, "Binance", 0);
+    await createUser.wait();
+  }
+
+  async function sell() {
+    let provider = new ethers.JsonRpcProvider();
+    let signer = await provider.getSigner();
+    let contract = new ethers.Contract(
+      "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      Account.abi,
+      signer,
+    );
+    const email = sessionStorage.getItem("email");
+    const createUser = await contract.sell(email, "Binance", 0, 0);
     await createUser.wait();
   }
 
@@ -85,6 +100,7 @@ export default function BNBCard() {
           </div>
           <div className="mb-4 flex justify-center">
             <input
+              ref={ref}
               placeholder="Enter the Number of crypto"
               className="p-4"
               type="number"
@@ -102,12 +118,15 @@ export default function BNBCard() {
               </div>
             </div>
             <div className="flex w-1/2 flex-row justify-around">
-              <button className="rounded-sm bg-green-500 pb-4 pl-10 pr-10 pt-4 text-white">
+              <button
+                className="rounded-sm bg-green-500 pb-4 pl-10 pr-10 pt-4 text-white"
+                onClick={buy}
+              >
                 Buy
               </button>
               <button
                 className="rounded-sm bg-red-500 pb-4 pl-10 pr-10 pt-4 text-white"
-                onClick={click}
+                onClick={sell}
               >
                 Sell
               </button>
