@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function Input() {
   const [searchText, setSearchText] = useState("");
+  const [ans,Setans]=useState("")
 
   function handleInputChange(e: any) {
     setSearchText(e.target.value);
@@ -15,6 +16,8 @@ export default function Input() {
         text: searchText 
       });
       console.log(response); 
+      await Setans(response.data.chatMessage.answer)
+      alert(ans)
     } catch (error) {
       console.error("Error:", error);
     }
