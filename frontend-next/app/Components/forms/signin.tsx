@@ -46,6 +46,7 @@ export default function SignInComponent() {
         password: values.password,
         redirect: false,
       });
+      sessionStorage.setItem("email", values.username);
       if (signindata?.error) {
         console.log(signindata.error);
         toast({
