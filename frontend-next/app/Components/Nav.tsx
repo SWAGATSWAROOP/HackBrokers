@@ -2,7 +2,6 @@
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AuthButtons from "./forms/authbutton";
-import { useState } from "react";
 import Image from "next/image";
 
 export default function Nav() {
@@ -164,7 +163,7 @@ export default function Nav() {
         </div>
       </div>
       <footer className="bg-gray-900 text-white py-8 mt-4 pb-4">
-  <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-2">
+  <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-">
     <div>
       <h3 className="text-lg font-bold mb-4">Crypto Exchange</h3>
       <p className="text-sm">Your go-to platform for trading Bitcoin, Ethereum, and other cryptocurrencies.</p>
