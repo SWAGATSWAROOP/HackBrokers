@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useToast } from "../Components/ui/use-toast";
 import prisma from "@/db";
 import { useRouter } from "next/navigation";
+import { ethers } from "ethers";
+import Account from "../../contracts/account.sol/Account.json";
 
 export default function Deposit() {
   const [accountNumber, setAccountNumber] = useState("");
@@ -12,14 +14,23 @@ export default function Deposit() {
   const router = useRouter();
 
   async function onSubmit() {
-    console.log(accountNumber,amount,username)
+    console.log(accountNumber, amount, username);
+    let provider = new ethers.JsonRpcProvider();
+    let signer = await provider.getSigner();
+    let contract = new ethers.Contract(
+      "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      Account.abi,
+      signer,
+    );
+    const deposit = await contract.deposit(username, amount);
+    await deposit.wait();
     const existingUser = await prisma.user.findUnique({
       where: {
         username: username,
       },
-    }); 
-    if(!existingUser) return
-    console.log(existingUser?.Name)
+    });
+    if (!existingUser) return;
+    console.log(existingUser?.Name);
   }
 
   return (
