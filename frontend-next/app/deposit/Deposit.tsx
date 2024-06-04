@@ -4,7 +4,7 @@ import { useToast } from "../Components/ui/use-toast";
 import prisma from "@/db";
 import { useRouter } from "next/navigation";
 import { ethers } from "ethers";
-import Account from "../../contracts/account.sol/Account.json";
+import Account from "../contracts/account.sol/Account.json";
 
 export default function Deposit() {
   const [accountNumber, setAccountNumber] = useState("");
