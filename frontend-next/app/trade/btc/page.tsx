@@ -10,7 +10,10 @@ export default function BitcoinCard() {
   const [imageUrl, setImageUrl] = useState(
     "https://res.cloudinary.com/djtudleky/image/upload/v1717468043/ogib3zfczrxpyfeo6mod.png",
   );
-
+  const data = {
+    desc : 12 ,
+    inc : 23
+  }
   useEffect(() => {
     const fetchImage = async () => {
       console.log("Change occured");
@@ -68,7 +71,9 @@ export default function BitcoinCard() {
             </div>
           </div>
           <div className="mb-4 flex justify-center">
+            <label htmlFor="number_of_crypto" className = "mb-4 mr-5 bg-black pl-2 pr-2" style = {{color : 'white', justifyContent : 'center', alignContent : 'center'}}>Enter the number of Crypto</label>
             <input
+            id = "number_of_crypto"
               placeholder="Enter the Number of crypto"
               className="p-4"
               type="number"
@@ -78,9 +83,11 @@ export default function BitcoinCard() {
             <div className="flex w-1/2 flex-row justify-around">
               <div className="flex items-center justify-center rounded-sm bg-green-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
+                <h1 className="pl-4 text-white "><strong> 0.3897 %</strong></h1>
               </div>
               <div className="flex items-center justify-center rounded-sm bg-red-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
+                <h1 className="pl-4 text-white "><strong> 0.6103 %</strong></h1>
               </div>
             </div>
             <div className="flex w-1/2 flex-row justify-around">
