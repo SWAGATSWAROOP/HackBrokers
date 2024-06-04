@@ -9,9 +9,10 @@ from datetime import timedelta
 import matplotlib.pyplot as plt
 import io
 import json
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app) 
 
-# Configure Cloudinary
 cloudinary.config(
     cloud_name=os.getenv("CLOUD_NAME"),
     api_key=os.getenv("API_KEY"),
@@ -48,23 +49,28 @@ def image_generate(Type, days):
     # Highlight the last two points
     plt.plot(last_10_days['Date'][-3:], last_10_days['Close'][-3:], linestyle='-', color='r', marker='o')
     
-    plt.title(Type + ' Close Prices Over Time')
+    plt.title(Type.upper() + ' Close Prices Over Time')
     plt.xlabel('Date')
     plt.ylabel('Close Price')
     plt.grid(True)
-    plt.savefig('btc_last_10_days.png')
+    # plt.savefig('btc_last_10_days.png')
     img_data = io.BytesIO()
     plt.savefig(img_data, format='png')
     img_data.seek(0)
     return img_data
 
- 
+@app.after_request
+def add_cors_headers(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 @app.route('/') 
 def home():
     return render_template('index.html')
 
-@app.route('/upload/', methods=['GET'])
+@app.route('/upload', methods=['GET'])
 def upload(): 
     Type = request.args.get('type')
     days = int(request.args.get('days'))

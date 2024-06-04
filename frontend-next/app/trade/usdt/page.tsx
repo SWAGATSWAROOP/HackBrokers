@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'; 
 export default function BitcoinCard() {
     const [days, setDays] = useState(7);
-    const [imageUrl, setImageUrl] = useState('https://res.cloudinary.com/djtudleky/image/upload/v1717468043/ogib3zfczrxpyfeo6mod.png');
+    const [imageUrl, setImageUrl] = useState('https://res.cloudinary.com/djtudleky/image/upload/v1717478844/nortj8odc3e4blwsoxie.png');
 
     useEffect(() => {
         const fetchImage = async () => {
             try {
                 const res = await axios.get(`/upload?days=${days}&type=btc`);
-                setImageUrl(res.secure_url.imageUrl);
+                setImageUrl(res.data.secure_url);
             } catch (error) {
                 console.error('Error fetching image:', error);
             }
