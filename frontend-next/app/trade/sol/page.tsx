@@ -60,7 +60,7 @@ export default function SOLCard() {
       <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 ">
         <div className="m-10 flex items-center justify-center text-3xl text-white font-serif font-bold">
           {" "}
-          Prediction Graph
+          Crypto Analyzer
         </div>
         <div className=" m-4 overflow-hidden rounded bg-gray-300 p-8 shadow-lg">
           <div className="flex flex-row items-center p-4">
@@ -76,7 +76,7 @@ export default function SOLCard() {
             <div className=" m-5 flex justify-center">
               <img
                 src={imageUrl}
-                alt="Bitcoin Image"
+                alt="sol Image"
                 width={2000}
                 height={1000}
                 className="rounded "
