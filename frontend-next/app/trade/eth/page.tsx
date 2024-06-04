@@ -4,6 +4,8 @@ import axios from "axios";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { ethers } from "ethers";
+import Account from "../../contracts/account.sol/Account.json";
 
 export default function ETHCARD() {
   const [days, setDays] = useState(7);
@@ -26,6 +28,32 @@ export default function ETHCARD() {
 
     fetchImage();
   }, [days]);
+
+  async function buy() {
+    let provider = new ethers.JsonRpcProvider();
+    let signer = await provider.getSigner();
+    let contract = new ethers.Contract(
+      "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      Account.abi,
+      signer,
+    );
+    const email = sessionStorage.getItem("email");
+    const createUser = await contract.buy(email, 0, "Bitcoin", 0);
+    await createUser.wait();
+  }
+
+  async function sell() {
+    let provider = new ethers.JsonRpcProvider();
+    let signer = await provider.getSigner();
+    let contract = new ethers.Contract(
+      "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      Account.abi,
+      signer,
+    );
+    const email = sessionStorage.getItem("email");
+    const createUser = await contract.sell(email, "Etherium", 0, 0);
+    await createUser.wait();
+  }
 
   return (
     <>
@@ -84,10 +112,16 @@ export default function ETHCARD() {
               </div>
             </div>
             <div className="flex w-1/2 flex-row justify-around">
-              <button className="rounded-sm bg-green-500 pb-4 pl-10 pr-10 pt-4 text-white">
+              <button
+                className="rounded-sm bg-green-500 pb-4 pl-10 pr-10 pt-4 text-white"
+                onClick={buy}
+              >
                 Buy
               </button>
-              <button className="rounded-sm bg-red-500 pb-4 pl-10 pr-10 pt-4 text-white">
+              <button
+                className="rounded-sm bg-red-500 pb-4 pl-10 pr-10 pt-4 text-white"
+                onClick={sell}
+              >
                 Sell
               </button>
             </div>
