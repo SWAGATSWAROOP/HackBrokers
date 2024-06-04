@@ -67,6 +67,13 @@ export default function BitcoinCard() {
               </p>
             </div>
           </div>
+          <div className="mb-4 flex justify-center">
+            <input
+              placeholder="Enter the Number of crypto"
+              className="p-4"
+              type="number"
+            />
+          </div>
           <div className="flex flex-row justify-between">
             <div className="flex w-1/2 flex-row justify-around">
               <div className="flex items-center justify-center rounded-sm bg-green-500 pb-2 pl-6 pr-6 pt-2">
