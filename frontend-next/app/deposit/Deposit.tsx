@@ -36,7 +36,7 @@ export default function Deposit() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-900">
       <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
-        <h2 className="mb-6 text-center text-2xl font-bold">Deposit Money</h2>
+        <h2 className="mb-6 text-center text-2xl font-semibold">Deposit Money</h2>
         <form onSubmit={onSubmit}>
           <div className="mb-4">
             <label

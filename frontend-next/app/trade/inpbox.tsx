@@ -24,26 +24,28 @@ export default function Input() {
 
   return (
     <>
-      <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 p-4">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchText}
-          onChange={handleInputChange}
-          className="w-full sm:w-48 rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring focus:ring-blue-200"
+      <div className="w-full flex flex-col items-center space-y-4 p-4">
+        <div className="w-full flex items-center">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchText}
+            onChange={handleInputChange}
+            className="w-full bg-zinc-300 rounded-l-md border border-gray-300 p-2 focus:border-blue-500 focus:ring focus:ring-blue-200"
+          />
+          <button
+            onClick={handleSubmit}
+            className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 m-3"
+          >
+            Submit
+          </button>
+        </div>
+        <textarea
+          className="w-full h-64 p-4 rounded-md border border-gray-300 bg-gray-100 text-black focus:border-blue-500 focus:ring focus:ring-blue-200 resize-none mt-4"
+          value={ans}
+          readOnly
         />
-        <button
-          onClick={handleSubmit}
-          className="ml-2 rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
-        >
-          Submit
-        </button>
       </div>
-      <textarea
-        className="w-full sm:w-96 h-64 mt-4 p-4 rounded-md border border-gray-300 bg-gray-100 text-black focus:border-blue-500 focus:ring focus:ring-blue-200 resize-none"
-        value={ans}
-        readOnly
-      />
     </>
   );
 }
