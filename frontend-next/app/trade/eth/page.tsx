@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function ETHCARD() {
     const [days, setDays] = useState(7);
-    const [imageUrl, setImageUrl] = useState('https://res.cloudinary.com/djtudleky/image/upload/v1717468043/ogib3zfczrxpyfeo6mod.png');
+    const [imageUrl, setImageUrl] = useState('https://res.cloudinary.com/djtudleky/image/upload/v1717478752/pkpxzxkarecwfiqwgsi2.png');
     useEffect(() => {
         const fetchImage = async () => {
             console.log("Change occured");
