@@ -4,9 +4,7 @@ import { useState, useEffect } from "react";
 
 export default function Input() {
   const [searchText, setSearchText] = useState("");
-  const [ans, Setans] = useState("");
-
-  useEffect(() => {}, [ans]);
+  const [ans, setAns] = useState("");
 
   function handleInputChange(e: any) {
     setSearchText(e.target.value);
@@ -18,8 +16,7 @@ export default function Input() {
         text: searchText,
       });
       console.log(response);
-      Setans(response.data.chatMessage.answer);
-      alert(ans);
+      setAns(response.data.chatMessage.answer);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -27,22 +24,26 @@ export default function Input() {
 
   return (
     <>
-      <div className="flex items-center pr-10">
+      <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 p-4">
         <input
           type="text"
           placeholder="Search..."
           value={searchText}
           onChange={handleInputChange}
-          className="w-48 rounded-md border border-gray-300 p-2"
+          className="w-full sm:w-48 rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring focus:ring-blue-200"
         />
         <button
           onClick={handleSubmit}
-          className="ml-2 rounded-md bg-white px-4 py-2 text-black"
+          className="ml-2 rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
         >
           Submit
         </button>
       </div>
-      <textarea value={ans} />
+      <textarea
+        className="w-full sm:w-96 h-64 mt-4 p-4 rounded-md border border-gray-300 bg-gray-100 text-black focus:border-blue-500 focus:ring focus:ring-blue-200 resize-none"
+        value={ans}
+        readOnly
+      />
     </>
   );
 }
