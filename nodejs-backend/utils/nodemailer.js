@@ -6,8 +6,8 @@ const transporter = nodemailer.createTransport({
   port: 587, //port for tranfering mails
   secure: true,
   auth: {
-    user: process.env.MAIL,
-    pass: process.env.MAIL_PASSWORD,
+    user: "decentralizedhealthcare@gmail.com",
+    pass: "iqvv mtas lynb cpsy",
   },
 });
 

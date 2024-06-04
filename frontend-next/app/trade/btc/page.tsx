@@ -9,9 +9,11 @@ export default function BitcoinCard() {
 
     useEffect(() => {
         const fetchImage = async () => {
+            console.log("Change occured");
             try {
-                const res = await axios.get(`/upload?days=${days}&type=btc`);
-                setImageUrl(res.secure_url.imageUrl);
+                const res = await axios.get(`http://127.0.0.1:5000/upload?days=${days}&type=btc`);
+                console.log(res);
+                setImageUrl(res.data.secure_url);
             } catch (error) {
                 console.error('Error fetching image:', error);
             }
@@ -21,8 +23,8 @@ export default function BitcoinCard() {
     }, [days]);
 
     return (
-        <div className="flex justify-center items-center  bg-gray-900">
-            <div className="max-w-sm rounded  shadow-lg bg-white m-4 ">
+        <div className="flex justify-center items-center min-h-screen bg-gray-900">
+            <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white m-4">
                 <div className="flex flex-row items-center p-4">
                     <select
                         className="mb-4 p-2 border rounded"
@@ -33,16 +35,16 @@ export default function BitcoinCard() {
                         <option value={30}>30 Days</option>
                         <option value={365}>365 Days</option>
                     </select>
-                    <Image
+                    <img
                         src={imageUrl}
                         alt="Bitcoin Image"
-                        width={700}
+                        width={300}
                         height={300}
                         className="rounded"
                     />
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2">Bitcoin (BTC)</div>
-                        <p className="text-black text-base ">
+                        <p className="text-gray-700 text-base">
                             Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.
                         </p>
                     </div>

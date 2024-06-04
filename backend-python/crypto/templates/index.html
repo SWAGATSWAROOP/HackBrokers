@@ -56,11 +56,19 @@
             background-color: #E6A700;
         }
     </style>
+    <script>
+        function updateFormAction() {
+            var type = document.getElementById("type").value;
+            var days = document.getElementById("days").value;
+            var form = document.querySelector("form");
+            form.action = "/upload?type=" + type + "&days=" + days;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
-        <h1>Parmeters</h1>
-        <form action="/upload" method="POST" enctype="multipart/form-data">
+        <h1>Parameters</h1>
+        <form onsubmit="updateFormAction()" method="GET" enctype="multipart/form-data">
             <label for="type">Type:</label>
             <select id="type" name="type">
                 <option value="btc">BTC</option>
