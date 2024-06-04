@@ -72,9 +72,11 @@ export default function BitcoinCard() {
             <div className="flex w-1/2 flex-row justify-around">
               <div className="flex items-center justify-center rounded-sm bg-green-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
+                <h1 className="pl-4 text-white "><strong> 0.5665 %</strong></h1>
               </div>
               <div className="flex items-center justify-center rounded-sm bg-red-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
+                <h1 className="pl-4 text-white "><strong> 0.4335 %</strong></h1>
               </div>
             </div>
             <div className="flex w-1/2 flex-row justify-around">
