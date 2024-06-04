@@ -17,7 +17,6 @@ export default function SOLCard() {
                 console.error('Error fetching image:', error);
             }
         };
-        
         fetchImage();
     }, [days]);
 
