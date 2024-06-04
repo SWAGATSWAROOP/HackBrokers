@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
+import { ethers } from "ethers";
+import Account from "../../contracts/account.sol/Account.json";
+import { useSession } from "next-auth/react";
 
 export default function BNBCard() {
   const [days, setDays] = useState(7);
@@ -27,6 +29,20 @@ export default function BNBCard() {
 
     fetchImage();
   }, [days]);
+
+  async function click() {
+    const session = useSession();
+    console.log(session);
+    let provider = new ethers.JsonRpcProvider();
+    let signer = await provider.getSigner();
+    let contract = new ethers.Contract(
+      "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      Account.abi,
+      signer,
+    );
+    const createUser = await contract.buy();
+    await createUser.wait();
+  }
 
   return (
     <>
@@ -67,6 +83,13 @@ export default function BNBCard() {
               </p>
             </div>
           </div>
+          <div className="mb-4 flex justify-center">
+            <input
+              placeholder="Enter the Number of crypto"
+              className="p-4"
+              type="number"
+            />
+          </div>
           <div className="flex flex-row justify-between">
             <div className="flex w-1/2 flex-row justify-around">
               <div className="flex items-center justify-center rounded-sm bg-green-500 pb-2 pl-6 pr-6 pt-2">
@@ -80,7 +103,10 @@ export default function BNBCard() {
               <button className="rounded-sm bg-green-500 pb-4 pl-10 pr-10 pt-4 text-white">
                 Buy
               </button>
-              <button className="rounded-sm bg-red-500 pb-4 pl-10 pr-10 pt-4 text-white">
+              <button
+                className="rounded-sm bg-red-500 pb-4 pl-10 pr-10 pt-4 text-white"
+                onClick={click}
+              >
                 Sell
               </button>
             </div>
