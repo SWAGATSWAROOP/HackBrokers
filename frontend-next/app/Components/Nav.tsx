@@ -30,7 +30,7 @@ export default function Nav() {
             <Link href="/trade" className="mx-24 font-serif text-white">
               Trade
             </Link>
-            <Link href="/about" className="mx-24 font-serif text-white">
+            <Link href="#about" className="mx-24 font-serif text-white">
               About
             </Link>
           </div>
@@ -121,7 +121,7 @@ export default function Nav() {
             <Image src="/img3.png" alt="image" width={620} height={640} />
             <div className="px-10 py-6">
               <div className="mb-4 text-center text-xl font-bold text-white">
-                Price Alert pb-5
+                Price Alert 
               </div>
               <p className="text-center text-base text-white">
                 Be notified on BTC, ETH prices and more
@@ -143,7 +143,7 @@ export default function Nav() {
             <Image src="/buy.webp" alt="image" width={620} height={640} />
             <div className="px-10 py-6">
               <div className="mb-4 text-center text-xl font-bold text-white">
-                Trade on the go pb-5
+                Trade on the go 
               </div>
               <p className="text-center text-base text-white">
                 Anywhere, anytime. Compatible with all browsers
@@ -163,8 +163,8 @@ export default function Nav() {
           </div>
         </div>
       </div>
-      <footer className="bg-gray-900 text-white py-8 mt-4 pb-4">
-  <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-2">
+      <footer className="bg-gray-900 text-white py-8 mt-4 pb-4 mt-10">
+  <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-2 ">
     <div>
       <h3 className="text-lg font-bold mb-4">Crypto Exchange</h3>
       <p className="text-sm">Your go-to platform for trading Bitcoin, Ethereum, and other cryptocurrencies.</p>
