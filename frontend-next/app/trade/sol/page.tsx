@@ -43,9 +43,10 @@ export default function SOLCard() {
                         className="rounded"
                     />
                     <div className="px-6 py-4">
-                        <div className="font-bold text-xl mb-2">Bitcoin (BTC)</div>
+                        <div className="font-bold text-xl mb-2"> Solana (SOL)</div>
                         <p className="text-gray-700 text-base">
-                            Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.
+                        Solana is a blockchain built for mass adoption. It's a high performance network that is utilized for a range of use cases, including finance, payments, and gaming. Solana operates as a single global state machine, and is open, interoperable, and decentralized. 
+
                         </p>
                     </div>
                 </div>

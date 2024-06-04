@@ -43,9 +43,10 @@ export default function BNBCard() {
                         className="rounded"
                     />
                     <div className="px-6 py-4">
-                        <div className="font-bold text-xl mb-2">Bitcoin (BTC)</div>
+                        <div className="font-bold text-xl mb-2">(BNB)</div>
                         <p className="text-gray-700 text-base">
-                            Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.
+                        Binance Coin is a cryptocurrency and the native token of the BNB Chain ecosystem, which includes BNB Smart Chain (BSC) and BNB Beacon Chain. BNB was created in July 2017 and launched through an initial coin offering (ICO). It was originally built on the Ethereum blockchain but later moved to the Binance Smart Chain, now called BNB Chain. 
+
                         </p>
                     </div>
                 </div>
