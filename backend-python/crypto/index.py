@@ -64,10 +64,10 @@ def image_generate(Type, days):
 def home():
     return render_template('index.html')
 
-@app.route('/upload', methods=['GET', 'POST'])
+@app.route('/upload/', methods=['GET'])
 def upload(): 
-    Type = request.form['type']
-    days = int(request.form['days'])
+    Type = request.args.get('type')
+    days = int(request.args.get('days'))
     img = image_generate(Type, days)  
     response = cloudinary.uploader.upload(img)
     print(response) 
