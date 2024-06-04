@@ -15,7 +15,7 @@ export default function BitcoinCard() {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const res = await axios.get(`/upload?days=${days}&type=btc`);
+        const res = await axios.get(`http://127.0.0.1:5000/upload?days=${days}&type=usdt`);
         setImageUrl(res.data.secure_url);
       } catch (error) {
         console.error("Error fetching image:", error);
