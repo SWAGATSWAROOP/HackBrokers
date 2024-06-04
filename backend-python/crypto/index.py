@@ -23,6 +23,7 @@ def image_generate(Type, days):
     df = pd.read_csv(Type + '.csv', usecols=['Date', 'Close'])
     with open(Type + '.pkl', 'rb') as f:
         model = pickle.load(f)
+     
     df['Date'] = pd.to_datetime(df['Date'], infer_datetime_format=True)
     for i in range(2):
         sma = ta.sma(df['Close'], length=5).iloc[-1]

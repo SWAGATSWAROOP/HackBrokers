@@ -26,7 +26,7 @@ export default function BitcoinCard() {
   return (
     <>
       <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 ">
-        <div className="mb-10 flex items-center justify-center text-3xl text-white">
+        <div className="mb-10 mt-5 flex items-center justify-center text-3xl text-white">
           {" "}
           Prediction Graph
         </div>

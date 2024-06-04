@@ -30,7 +30,7 @@ export default function SOLCard() {
   return (
     <>
       <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 ">
-        <div className="mb-10 flex items-center justify-center text-3xl text-white">
+        <div className="m-10 flex items-center justify-center text-3xl text-white font-serif font-bold">
           {" "}
           Prediction Graph
         </div>
@@ -55,39 +55,40 @@ export default function SOLCard() {
               />
             </div>
             <div className="px-6 py-4">
-              <div className="mb-2 text-xl font-bold"> Solana (SOL)</div>
-              <p className="text-base text-gray-700">
+              <div className="mb-2 text-xl font-bold"> Solana (SOL):</div>
+              <p className="text-base text-gray-700 text-2xl">
                 Solana is a blockchain built for mass adoption. It's a high
                 performance network that is utilized for a range of use cases,
                 including finance, payments, and gaming. Solana operates as a
                 single global state machine, and is open, interoperable, and
                 decentralized.
               </p>
+              <div className="m-4 flex justify-center">
+                <input
+                  placeholder="Enter the number of crypto"
+                  className="p-5 w-80 rounded-lg"
+                  type="number"
+                />
+              </div>
             </div>
           </div>
-          <div className="mb-4 flex justify-center">
-            <input
-              placeholder="Enter the Number of crypto"
-              className="p-4"
-              type="number"
-            />
-          </div>
-          <div className="flex flex-row justify-between">
-            <div className="flex w-1/2 flex-row justify-around">
-              <div className="flex items-center justify-center rounded-sm bg-green-500 pb-2 pl-6 pr-6 pt-2">
+
+          <div className="flex flex-row justify-between ml-12 mr-12">
+            <div className="flex w-1/2 ml-35 flex-row justify-around">
+              <div className="flex items-center justify-center rounded-xl bg-green-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
                 <h1 className="pl-4 text-white "><strong> 0.3356 %</strong></h1>
               </div>
-              <div className="flex items-center justify-center rounded-sm bg-red-500 pb-2 pl-6 pr-6 pt-2">
+              <div className="flex items-center justify-center rounded-xl bg-red-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
                 <h1 className="pl-4 text-white "><strong> 0.6644 %</strong></h1>
               </div>
             </div>
-            <div className="flex w-1/2 flex-row justify-around">
-              <button className="rounded-sm bg-green-500 pb-4 pl-10 pr-10 pt-4 text-white">
+            <div className="flex w-1/2 ml-20 flex-row justify-around">
+              <button className="rounded-xl bg-green-500 pb-4 pl-10 pr-10 pt-4 text-white">
                 Buy
               </button>
-              <button className="rounded-sm bg-red-500 pb-4 pl-10 pr-10 pt-4 text-white">
+              <button className="rounded-xl bg-red-500 pb-4 pl-10 pr-10 pt-4 text-white">
                 Sell
               </button>
             </div>
