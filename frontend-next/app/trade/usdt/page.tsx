@@ -54,9 +54,10 @@ export default function BitcoinCard() {
   return (
     <>
       <div className="flex min-h-screen flex-col items-center justify-center bg-gray-900 ">
-        <div className="mb-10 mt-5 flex items-center justify-center text-3xl text-white">
+        <div className="m-10 flex items-center justify-center text-3xl text-white font-serif font-bold">
           {" "}
-          Prediction Graph
+          {" "}
+          Crypto Analyzer
         </div>
         <div className=" m-4 overflow-hidden rounded bg-gray-300 p-8 shadow-lg">
           <div className="flex flex-row items-center p-4">
@@ -72,7 +73,7 @@ export default function BitcoinCard() {
             <div className=" m-5 flex justify-center">
               <img
                 src={imageUrl}
-                alt="Bitcoin Image"
+                alt="usdt Image"
                 width={2000}
                 height={1000}
                 className="rounded "
@@ -87,17 +88,18 @@ export default function BitcoinCard() {
                 has been minted. Tether has been criticized for a lack of
                 transparency and verifiability of its claimed fiat reserves.
               </p>
+              <div className="m-4 flex justify-center">
+                <input
+                  placeholder="Enter the number of crypto"
+                  className="p-5 w-80 rounded-lg"
+                  type="number"
+                />
+              </div>
             </div>
           </div>
-          <div className="mb-4 flex justify-center">
-            <input
-              placeholder="Enter the Number of crypto"
-              className="p-4"
-              type="number"
-            />
-          </div>
-          <div className="flex flex-row justify-between">
-            <div className="flex w-1/2 flex-row justify-around">
+          
+          <div className="flex flex-row justify-between ml-12 mr-12">
+            <div className="flex w-1/2 ml-35 flex-row justify-around">
               <div className="flex items-center justify-center rounded-sm bg-green-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
                 <h1 className="pl-4 text-white "><strong> 0.5665 %</strong></h1>
