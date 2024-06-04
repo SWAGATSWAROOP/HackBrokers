@@ -3,14 +3,22 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+"use client";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function SOLCard() {
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState(
     "https://res.cloudinary.com/djtudleky/image/upload/v1717474460/wt1gtzmvctpw7ehtilpk.png",
   );
+  const [days, setDays] = useState(7);
+  const [imageUrl, setImageUrl] = useState(
+    "https://res.cloudinary.com/djtudleky/image/upload/v1717474460/wt1gtzmvctpw7ehtilpk.png",
+  );
 
-<<<<<<< HEAD
     useEffect(() => {
         const fetchImage = async () => {
             console.log("Change occured");
@@ -22,26 +30,9 @@ export default function SOLCard() {
                 console.error('Error fetching image:', error);
             }
         };
+        
         fetchImage();
     }, [days]);
-=======
-  useEffect(() => {
-    const fetchImage = async () => {
-      console.log("Change occured");
-      try {
-        const res = await axios.get(
-          `http://127.0.0.1:5000/upload?days=${days}&type=sol`,
-        );
-        console.log(res);
-        setImageUrl(res.data.secure_url);
-      } catch (error) {
-        console.error("Error fetching image:", error);
-      }
-    };
->>>>>>> b69d9e9 (chore: Add session storage for email in signin form and update BNB trading page)
-
-    fetchImage();
-  }, [days]);
 
   return (
     <>

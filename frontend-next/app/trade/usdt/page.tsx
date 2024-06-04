@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+<<<<<<< HEAD
 
 export default function BitcoinCard() {
   const [days, setDays] = useState(7);
@@ -24,6 +25,15 @@ export default function BitcoinCard() {
         fetchImage();
     }, [days]);
 =======
+=======
+
+export default function BitcoinCard() {
+  const [days, setDays] = useState(7);
+  const [imageUrl, setImageUrl] = useState(
+    "https://res.cloudinary.com/djtudleky/image/upload/v1717478844/nortj8odc3e4blwsoxie.png",
+  );
+
+>>>>>>> b69d9e9 (chore: Add session storage for email in signin form and update BNB trading page)
   useEffect(() => {
     const fetchImage = async () => {
       try {
@@ -33,6 +43,9 @@ export default function BitcoinCard() {
         console.error("Error fetching image:", error);
       }
     };
+<<<<<<< HEAD
+>>>>>>> b69d9e9 (chore: Add session storage for email in signin form and update BNB trading page)
+=======
 >>>>>>> b69d9e9 (chore: Add session storage for email in signin form and update BNB trading page)
 
     fetchImage();
