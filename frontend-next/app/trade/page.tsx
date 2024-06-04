@@ -36,6 +36,7 @@ export default function Trade() {
                 <div className="flex items-center justify-center pr-10">
                     <Input />
                 </div>
+
             </div>
         </>
     );
