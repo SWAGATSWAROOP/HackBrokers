@@ -74,7 +74,6 @@ export default function SignUpComponent() {
     }
   }
   return (
-    
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className=" p-6">
         <div>
