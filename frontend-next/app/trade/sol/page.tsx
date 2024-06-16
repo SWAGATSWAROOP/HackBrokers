@@ -9,18 +9,19 @@ import Account from "../../contracts/account.sol/Account.json";
 export default function SOLCard() {
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState(
-    "https://res.cloudinary.com/djtudleky/image/upload/v1717474460/wt1gtzmvctpw7ehtilpk.png",
+    "https://res.cloudinary.com/djtudleky/image/upload/v1718522679/j14vs2o3yvmk8qhpq97w.png",
   );
-
+  const images = ["https://res.cloudinary.com/djtudleky/image/upload/v1718522679/j14vs2o3yvmk8qhpq97w.png", "https://res.cloudinary.com/djtudleky/image/upload/v1718522713/gh5sdkcxphcurg35vrpk.png", "https://res.cloudinary.com/djtudleky/image/upload/v1718522726/sxkl2xu53wma6rcrvlao.png"]
   useEffect(() => {
     const fetchImage = async () => {
       console.log("Change occured");
       try {
-        const res = await axios.get(
-          `http://127.0.0.1:5000/upload?days=${days}&type=sol`,
-        );
-        console.log(res);
-        setImageUrl(res.data.secure_url);
+        if(days === 7)
+          setImageUrl(images[0]);
+          else if(days === 30)
+            setImageUrl(images[1]);
+          else  
+            setImageUrl(images[2]);
       } catch (error) {
         console.error("Error fetching image:", error);
       }
@@ -105,11 +106,11 @@ export default function SOLCard() {
             <div className="flex w-1/2 ml-35 flex-row justify-around">
               <div className="flex items-center justify-center rounded-xl bg-green-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.3356 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.3399 %</strong></h1>
               </div>
               <div className="flex items-center justify-center rounded-xl bg-red-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.6644 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.6601 %</strong></h1>
               </div>
             </div>
             <div className="flex w-1/2 flex-row justify-around">

@@ -10,17 +10,24 @@ import Account from "../../contracts/account.sol/Account.json";
 export default function ETHCARD() {
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState(
-    "https://res.cloudinary.com/djtudleky/image/upload/v1717478752/pkpxzxkarecwfiqwgsi2.png",
+    "https://res.cloudinary.com/djtudleky/image/upload/v1718522546/s0b9qtwkqzbhdphg2pkp.png",
   );
+  const images = ["https://res.cloudinary.com/djtudleky/image/upload/v1718522546/s0b9qtwkqzbhdphg2pkp.png", "https://res.cloudinary.com/djtudleky/image/upload/v1718522638/zvjtlopdhs9ncagimtc2.png", "https://res.cloudinary.com/djtudleky/image/upload/v1718522656/r7562lmcv9wkvo83yzzw.png"]
   useEffect(() => {
     const fetchImage = async () => {
       console.log("Change occured");
       try {
-        const res = await axios.get(
-          `http://127.0.0.1:5000/upload?days=${days}&type=eth`,
-        );
-        console.log(res);
-        setImageUrl(res.data.secure_url);
+        // const res = await axios.get(
+        //   `http://127.0.0.1:5000/upload?days=${days}&type=eth`,
+        // );
+        // console.log(res);
+        // setImageUrl(res.data.secure_url);
+        if(days === 7)
+          setImageUrl(images[0]);
+          else if(days === 30)
+            setImageUrl(images[1]);
+          else  
+            setImageUrl(images[2]);
       } catch (error) {
         console.error("Error fetching image:", error);
       }
@@ -109,7 +116,7 @@ export default function ETHCARD() {
               </div>
               <div className="flex items-center justify-center rounded-sm bg-red-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.4910 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.53014 %</strong></h1>
               </div>
             </div>
             <div className="flex w-1/2 flex-row justify-around">

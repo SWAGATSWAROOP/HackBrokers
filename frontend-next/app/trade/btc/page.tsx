@@ -10,8 +10,9 @@ import Account from "../../contracts/account.sol/Account.json";
 export default function BitcoinCard() {
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState(
-    "https://res.cloudinary.com/djtudleky/image/upload/v1717468043/ogib3zfczrxpyfeo6mod.png",
+    "https://res.cloudinary.com/djtudleky/image/upload/v1718521737/kduzvxqqwp9phqeq8mos.png",
   );
+  const images = ["https://res.cloudinary.com/djtudleky/image/upload/v1718521737/kduzvxqqwp9phqeq8mos.png", "https://res.cloudinary.com/djtudleky/image/upload/v1718521815/scvxtnfy3yitnbqjbpjl.png", "https://res.cloudinary.com/djtudleky/image/upload/v1718521842/jcbkxiqbxc0lcxrm5anz.png"]
   const data = {
     desc : 12 ,
     inc : 23
@@ -20,16 +21,20 @@ export default function BitcoinCard() {
     const fetchImage = async () => {
       console.log("Change occured");
       try {
-        const res = await axios.get(
-          `http://127.0.0.1:5000/upload?days=${days}&type=btc`,
-        );
-        console.log(res);
-        setImageUrl(res.data.secure_url);
+        // const res = await axios.get(
+        //   `http://127.0.0.1:5000/upload?days=${days}&type=btc`,
+        // );
+        // console.log(res);
+        if(days === 7)
+        setImageUrl(images[0]);
+        else if(days === 30)
+          setImageUrl(images[1]);
+        else  
+          setImageUrl(images[2]);
       } catch (error) {
         console.error("Error fetching image:", error);
       }
     };
-
     fetchImage();
   }, [days]);
 
@@ -110,11 +115,11 @@ export default function BitcoinCard() {
             <div className="flex w-1/2 ml-35 flex-row justify-around">
               <div className="flex items-center justify-center rounded-sm bg-green-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.3897 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.3804 %</strong></h1>
               </div>
               <div className="flex items-center justify-center rounded-sm bg-red-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.6103 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.6196 %</strong></h1>
               </div>
             </div>
             <div className="flex w-1/2 flex-row justify-around">
