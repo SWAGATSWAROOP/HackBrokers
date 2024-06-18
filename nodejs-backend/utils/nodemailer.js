@@ -1,27 +1,40 @@
-import nodemailer from "nodemailer";
+import { schedule } from "node-cron";
+import { createTransport } from "nodemailer";
+import { User } from "../models/userTrigger.js";
 
-const transporter = nodemailer.createTransport({
+// Set up your email transporter
+const transporter = createTransport({
   service: "gmail",
-  host: "smtp-relay.gmail.com",
-  port: 587, //port for tranfering mails
-  secure: true,
   auth: {
-    user: "decentralizedhealthcare@gmail.com",
-    pass: "iqvv mtas lynb cpsy",
+    user: process.env.MAIL,
+    pass: process.env.MAIL_PASSWORD,
   },
 });
 
-// sending mail
-export const sendMail = async (to_mail, coin) => {
-  try {
-    await transporter.sendMail({
-      from: "decentralizedhealthcare@gmail.com", // sender address
-      to: to_mail, // list of receivers
-      subject: `Price Has gone below your threshold`, // Subject line
-      text: `${coin} has gone below your specified threshold`, // plain text body
-    });
-    return true;
-  } catch (error) {
-    return false;
-  }
+const sendEmail = (email, coin, price) => {
+  const mailOptions = {
+    from: process.env.MAIL,
+    to: email,
+    subject: "Price Alert",
+    text: `The price of ${coin} has dropped below your stop loss price. Current price: ${price}`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) console.error("Error sending email", error);
+    else console.log("Email sent:", info.response);
+  });
 };
+
+schedule("* * * * *", async () => {
+  const users = await User.find();
+  for (const user of users) {
+    for (const { coin, price } of user.stopLoss) {
+      redisClient.get(coin, (err, currentPrice) => {
+        if (err) console.error("Error fetching from Redis", err);
+        else if (currentPrice < price) {
+          sendEmail(user.email, coin, currentPrice);
+        }
+      });
+    }
+  }
+});

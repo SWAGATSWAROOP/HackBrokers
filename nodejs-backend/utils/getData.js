@@ -1,4 +1,3 @@
-import { bulkUpdate } from "./bulkupdate.js";
 import { redis } from "../redis/redis.js";
 
 export const datafetch = async () => {
@@ -37,7 +36,6 @@ export const datafetch = async () => {
     } catch (error) {
       console.error("Error setting coins:", error);
     }
-    await bulkUpdate(data);
     console.log("Successfully Updated Data");
   } catch (error) {
     console.error("Fetch error:", error);
