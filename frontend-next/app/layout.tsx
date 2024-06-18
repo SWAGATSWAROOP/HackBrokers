@@ -7,7 +7,7 @@ import Provider from "./lib/Provider";
 
 export const metadata: Metadata = {
   title: "HackBrokers",
-  description: "Buy and Sell Crypto Using",
+  description: "Your all in one crypto app",
 };
 
 export default async function RootLayout({
@@ -19,7 +19,7 @@ export default async function RootLayout({
   console.log(session);
   return (
     <html lang="en">
-      <body className="bg-black">
+      <body className="bg-gradient-to-r from-black to-[#2e1065] from-50%">
         <main className=" flex h-screen flex-col ">
           <Provider session={session}>
             <div className="">{children}</div>
