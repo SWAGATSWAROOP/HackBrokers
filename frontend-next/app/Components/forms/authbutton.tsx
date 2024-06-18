@@ -28,10 +28,10 @@ const AuthButtons = () => {
   } else {
     return (
       <>
-        <div className="px-2">
+        <div className="px-2 ">
           <Link
             href={"/signin"}
-            className={buttonVariants({ variant: "outline" })}
+            className="bg-black hover:bg-gradient-to-r from-black from-10% to-blue-500 px-4 py-2 text-white rounded-xl"
           >
             Sign In
           </Link>
@@ -39,7 +39,7 @@ const AuthButtons = () => {
         <div className="px-2">
           <Link
             href={"/signup"}
-            className={buttonVariants({ variant: "outline" })}
+            className="bg-black hover:bg-gradient-to-r from-black from-10% to-blue-500 px-4 py-2 text-white rounded-xl"
           >
             Register
           </Link>

@@ -8,37 +8,46 @@ export default function Nav() {
   const router = useRouter();
   return (
     <>
-      <div className="fixed left-0 right-0 top-0 z-10 border-b bg-gray-900 py-2">
-        <div className="container mx-auto flex items-center justify-between px-4">
+      <div className="fixed left-0 right-0  top-0 z-10 border-b bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-500 from-30%  py-3">
+        <div className="container mx-auto flex items-center justify-between px-6">
           <div className="flex items-center">
             <Link
               href="/"
-              className="flex items-center gap-x-2 font-serif text-xl font-bold text-yellow-400"
+              className="flex items-center gap-x-2 font-serif text-2xl font-extrabold text-yellow-400 tracking-wider"
             >
               🅑🅔 CRYPTOxAI
             </Link>
           </div>
-          <div className="hidden items-center  gap-x-4 md:flex">
+          <div className="hidden items-center gap-x-8 md:flex">
             <Link
               href="https://crypto-sand-ten.vercel.app/"
-              className="mx-24 font-serif text-white"
+              className="relative group font-serif text-white transition duration-300 ease-in-out transform hover:scale-105"
             >
               Market
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
             </Link>
-
-            <Link href="/trade" className="mx-24 font-serif text-white">
+            <Link
+              href="/trade"
+              className="relative group font-serif text-white transition duration-300 ease-in-out transform hover:scale-105"
+            >
               Trade
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
             </Link>
-            <Link href="#about" className="mx-24 font-serif text-white">
+            <Link
+              href="#about"
+              className="relative group font-serif text-white transition duration-300 ease-in-out transform hover:scale-105"
+            >
               About
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
             </Link>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center ">
             <AuthButtons />
           </div>
         </div>
       </div>
-      <div className="mt-16 flex flex-col items-center md:mt-20 md:flex-row">
+
+      <div className="mt-14 flex flex-col items-center md:mt-16 md:flex-row lg:mt-5">
         <section className="flex-1 md:ml-20 lg:ml-52">
           <div className="text-center font-bold md:text-left">
             <h1 className="mb-3 font-serif text-2xl text-white md:text-4xl">
@@ -74,95 +83,57 @@ export default function Nav() {
       </div>
       <div className="flex min-h-screen items-center justify-center">
         <div className="grid grid-cols-2 gap-8">
-          <div className="max-w-sm overflow-hidden rounded bg-gray-900 shadow-lg">
+          <div className="max-w-sm overflow-hidden rounded bg-indigo-900 hover:bg-gradient-to-r from-purple-900 to-indigo-900 from-40% shadow-lg">
             <div className="px-10 py-6">
               <div className="mb-4 text-center text-xl font-bold text-white">
                 Buy Crypto
               </div>
-              <p className="pb-5 text-center text-base text-white">
+              <p className="pb-5 text-center text-base text-white mb-5">
                 BUY BTC, ETH, and other crypto easily via bank transfer
               </p>
-              <Image src="/wallet.png" alt="image" width={500} height={200} />
-            </div>
-            <div className="px-6 pb-4 pt-2">
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #crypto
-              </span>
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #blockchain
-              </span>
+              <Image src="/buy.jpg" alt="image" width={500} height={200} />
             </div>
           </div>
-          <div className="max-w-sm overflow-hidden rounded bg-gray-900 shadow-lg">
+          <div className="max-w-sm overflow-hidden rounded bg-indigo-900 hover:bg-gradient-to-l from-purple-900 to-indigo-900 from-70% shadow-lg">
             <div className="px-10 py-6">
               <div className="mb-4 pb-5 text-center text-xl font-bold text-white">
                 Recurring Buy
               </div>
-              <p className="text-center text-base text-white ">
+              <p className="text-center text-base text-white mb-5">
                 Grow your portfolio automatically with daily, weekly, or monthly
                 trades.
               </p>
-              <Image src="/phone2.webp" alt="image" width={620} height={640} />
-            </div>
-            <div className="px-6 pb-4 pt-2">
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #investment
-              </span>
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #finance
-              </span>
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #crypto
-              </span>
+              <Image src="/buying.jpg" alt="image" width={620} height={640} />
             </div>
           </div>
-          <div className="max-w-sm overflow-hidden rounded bg-gray-900 shadow-lg">
-            <Image src="/img3.png" alt="image" width={620} height={640} />
+          <div className="max-w-sm overflow-hidden rounded bg-indigo-900 hover:bg-gradient-to-r from-purple-900 to-indigo-900 from-40% shadow-lg">
+            
             <div className="px-10 py-6">
               <div className="mb-4 text-center text-xl font-bold text-white">
                 Price Alert
               </div>
-              <p className="text-center text-base text-white">
+              <p className="text-center text-base text-white mb-10">
                 Be notified on BTC, ETH prices and more
               </p>
+              <Image src="/alert.jpeg" alt="image" width={620} height={640} />
             </div>
-            <div className="px-6 pb-4 pt-2">
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #Stop Loss
-              </span>
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #crypto
-              </span>
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #finance
-              </span>
-            </div>
+            
           </div>
-          <div className="max-w-sm overflow-hidden rounded bg-gray-900 shadow-lg">
-            <Image src="/buy.webp" alt="image" width={620} height={640} />
+          <div className="max-w-sm overflow-hidden rounded bg-indigo-900 hover:bg-gradient-to-l from-purple-900 to-indigo-900 from-70% shadow-lg">
+            
             <div className="px-10 py-6">
               <div className="mb-4 text-center text-xl font-bold text-white">
                 Trade on the go
               </div>
-              <p className="text-center text-base text-white">
+              <p className="text-center text-base text-white mb-5">
                 Anywhere, anytime. Compatible with all browsers
               </p>
-            </div>
-            <div className="px-6 pb-4 pt-2">
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #trade
-              </span>
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #crypto
-              </span>
-              <span className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-                #finance
-              </span>
+              <Image src="/anywhere.jpg" alt="image" width={620} height={640} />
             </div>
           </div>
         </div>
       </div>
-      <footer className="mt-4 bg-gray-900 py-8 pb-4 text-white">
+      <footer className="mt-4 bg-gradient-to-r from-indigo-900 from-30% to-purple-900  py-8 pb-4 text-white">
         <div className="px- container mx-auto grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <h3 className="mb-4 text-lg font-bold">Crypto Exchange</h3>
@@ -177,7 +148,7 @@ export default function Nav() {
               <li className="mb-2">
                 <Link
                   href="https://crypto-sand-ten.vercel.app/"
-                  className="text-sm text-gray-400 hover:text-white"
+                  className="text-sm text-gray-300 hover:text-white"
                 >
                   Market
                 </Link>
@@ -185,7 +156,7 @@ export default function Nav() {
               <li className="mb-2">
                 <Link
                   href="/trade"
-                  className="text-sm text-gray-400 hover:text-white"
+                  className="text-sm text-gray-300 hover:text-white"
                 >
                   Trade
                 </Link>
@@ -193,7 +164,7 @@ export default function Nav() {
               <li className="mb-2">
                 <Link
                   href="/about"
-                  className="text-sm text-gray-400 hover:text-white"
+                  className="text-sm text-gray-300 hover:text-white"
                 >
                   About
                 </Link>
@@ -205,7 +176,7 @@ export default function Nav() {
             <div className="flex space-x-4 pl-40">
               <Link
                 href="https://x.com/Sanghrakshit12"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-200 hover:text-white"
               >
                 <svg
                   className="h-6 w-6"
@@ -217,7 +188,7 @@ export default function Nav() {
               </Link>
               <Link
                 href="https://github.com/Sanghrakshit12"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-200 hover:text-white"
               >
                 <svg
                   className="h-6 w-6"
@@ -229,10 +200,10 @@ export default function Nav() {
               </Link>
               <Link
                 href="https://www.linkedin.com/in/sanghrakshit/"
-                className="text-gray-400 hover:text-white"
+                className="text-gray-200 hover:text-white"
               >
                 <svg
-                  className="h-6 w-6"
+                  className="h-6 w-6 "
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -243,7 +214,7 @@ export default function Nav() {
           </div>
         </div>
         <div className="mt-4 border-t border-gray-700 pt-4">
-          <p className="text-center text-sm text-gray-400">
+          <p className="text-center text-sm text-gray-100">
             © 2024 Crypto Exchange. All rights reserved.
           </p>
         </div>
