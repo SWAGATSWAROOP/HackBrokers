@@ -47,7 +47,7 @@ export default function Nav() {
         </div>
       </div>
 
-      <div className="mt-14 flex flex-col items-center md:mt-16 md:flex-row lg:mt-5">
+      <div className="mt-14 min-h-screen flex flex-col items-center md:mt-16 md:flex-row lg:mt-5">
         <section className="flex-1 md:ml-20 lg:ml-52">
           <div className="text-center font-bold md:text-left">
             <h1 className="mb-3 font-serif text-2xl text-white md:text-4xl">
@@ -82,7 +82,7 @@ export default function Nav() {
         </div>
       </div>
       <div className="flex min-h-screen items-center justify-center">
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 gap-x-10 gap-y-20">
           <div className="max-w-sm overflow-hidden rounded bg-indigo-900 hover:bg-gradient-to-r from-purple-900 to-indigo-900 from-40% shadow-lg">
             <div className="px-10 py-6">
               <div className="mb-4 text-center text-xl font-bold text-white">
@@ -107,7 +107,7 @@ export default function Nav() {
             </div>
           </div>
           <div className="max-w-sm overflow-hidden rounded bg-indigo-900 hover:bg-gradient-to-r from-purple-900 to-indigo-900 from-40% shadow-lg">
-            
+
             <div className="px-10 py-6">
               <div className="mb-4 text-center text-xl font-bold text-white">
                 Price Alert
@@ -117,10 +117,10 @@ export default function Nav() {
               </p>
               <Image src="/alert.jpeg" alt="image" width={620} height={640} />
             </div>
-            
+
           </div>
           <div className="max-w-sm overflow-hidden rounded bg-indigo-900 hover:bg-gradient-to-l from-purple-900 to-indigo-900 from-70% shadow-lg">
-            
+
             <div className="px-10 py-6">
               <div className="mb-4 text-center text-xl font-bold text-white">
                 Trade on the go
@@ -133,6 +133,21 @@ export default function Nav() {
           </div>
         </div>
       </div>
+      <div className="min-h-screen flex flex-col justify-center items-center">
+        <div className="text-center space-y-5 ">
+          <div className="mt-20 lg:mt-35 text-white text-[50px] font-pacifico">
+            Then what are you waiting for
+          </div>
+          <div className="text-white text-3xl font-anton tracking-2xl">
+            Start Trading with CryptoXAI
+          </div>
+          <button className="bg-yellow-500 text-white py-2 px-6 rounded-3xl hover:bg-white hover:text-black  transition duration-300">
+            Let's Go
+          </button>
+        </div>
+      </div>
+
+
       <footer className="mt-4 bg-gradient-to-r from-indigo-900 from-30% to-purple-900  py-8 pb-4 text-white">
         <div className="px- container mx-auto grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
