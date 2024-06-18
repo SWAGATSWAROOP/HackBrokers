@@ -19,7 +19,7 @@ export default async function RootLayout({
   console.log(session);
   return (
     <html lang="en">
-      <body className="bg-gradient-to-r from-black to-[#2e1065] from-50%">
+      <body className="bg-gradient-to-r from-black to-[#2e1065] from-50% font-roboto">
         <main className=" flex h-screen flex-col ">
           <Provider session={session}>
             <div className="">{children}</div>
