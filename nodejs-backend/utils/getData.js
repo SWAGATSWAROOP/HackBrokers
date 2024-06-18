@@ -16,7 +16,7 @@ export const datafetch = async () => {
           sort: "rank",
           order: "ascending",
           offset: 0,
-          limit: 5,
+          limit: 100,
           meta: false,
         }),
       }
