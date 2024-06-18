@@ -1,23 +1,14 @@
-import { CoinsData } from "../models/coindataSchema.js";
-import { trigger } from "./trigger.js";
+import kafka from "kafka-node";
+import { User } from "../models/userTrigger.js";
 
-export const bulkUpdate = async (data) => {
-  const bulkOps = await Promise.all(
-    data.map(async (element) => {
-      const filter = { symbol: element.code };
-      const update = { $set: { price: element.rate } };
+const Consumer = kafka.Consumer;
+const consumer = new Consumer(
+  client,
+  [{ topic: "user-stop-loss", partition: 0 }],
+  { autoCommit: true }
+);
 
-      return {
-        updateOne: {
-          filter: filter,
-          update: update,
-          upsert: true,
-        },
-      };
-    })
-  );
-
-  await CoinsData.bulkWrite(bulkOps);
-  console.log("Bulk update completed");
-  await trigger();
-};
+consumer.on("message", async (message) => {
+  const users = JSON.parse(message.value);
+  await User.insertMany(users, { ordered: false }).catch(console.error);
+});

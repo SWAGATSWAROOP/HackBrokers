@@ -1,27 +1,13 @@
-import mongoose from "mongoose";
+import { Schema, model } from "mongoose";
 
-// Define the schema for a coin
-const coinSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
+const userSchema = new Schema({
+  email: { type: String, required: true, unique: true },
+  stopLoss: [
+    {
+      coin: String,
+      price: Number,
+    },
+  ],
 });
 
-// Define the main schema for user data
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    index: true,
-  },
-  coins: [coinSchema], // Embedding the coin schema as an array
-});
-
-// Create the model for the user schema
-export const UserData = mongoose.model("UserData", userSchema);
+export const User = model("User", userSchema);
