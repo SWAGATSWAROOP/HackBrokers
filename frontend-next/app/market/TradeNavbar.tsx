@@ -1,10 +1,7 @@
 import Link from "next/link";
-import { Next_Auth_Config } from "../lib/auth";
-import { getServerSession } from "next-auth";
 import { buttonVariants } from "../Components/ui/button";
 
 export default async function TradeNavbar() {
-  const session = await getServerSession(Next_Auth_Config);
   return (
     <div className="fixed left-0 right-0 top-0 z-10 border-b bg-gray-800 py-2">
       <div className="container mx-auto flex items-center justify-between">
