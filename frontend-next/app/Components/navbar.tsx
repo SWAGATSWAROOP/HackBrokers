@@ -13,7 +13,7 @@ export default async function Navbar() {
             href={"/"}
             className="flex items-center gap-x-2 text-xl font-bold text-yellow-400 font-serif"
           >
-           🅑🅔 CRYPTOxAI
+            🅑🅔 CRYPTOxAI
           </Link>
         </div>
         <div className="flex items-end">
