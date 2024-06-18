@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AuthButtons from "./forms/authbutton";
 import Image from "next/image";
+import { ArrowRightIcon } from "lucide-react";
 
 export default function Nav() {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function Nav() {
               🅑🅔 CRYPTOxAI
             </Link>
           </div>
+          
           <div className="hidden items-center gap-x-8 md:flex">
             <Link
               href="https://crypto-sand-ten.vercel.app/"
@@ -46,34 +48,25 @@ export default function Nav() {
           </div>
         </div>
       </div>
-
+ 
       <div className="mt-14 flex flex-col items-center md:mt-16 md:flex-row lg:mt-5">
         <section className="flex-1 md:ml-20 lg:ml-52">
-          <div className="text-center font-bold md:text-left">
-            <h1 className="mb-3 font-serif text-2xl text-white md:text-4xl">
-              Made in India
-            </h1>
-            <h2 className="mb-1 font-serif text-5xl text-white md:text-7xl">
-              CRYPTO APP
-            </h2>
-            <p className="mb-3 font-serif text-2xl text-white md:text-4xl">
-              All in one solution
-            </p>
-            <div className="mt-8 flex flex-col items-center md:flex-row md:items-start">
-              <input
-                placeholder="Email"
-                className="mb-2 w-full rounded p-2 md:mb-0 md:mr-2 md:w-64"
-              />
-              <button
-                onClick={() => {
-                  router.push("/signup");
-                }}
-                className="w-full rounded-lg bg-green-500 px-4 py-2 font-bold text-black transition duration-300 hover:bg-green-600 focus:ring-4 focus:ring-green-300 md:w-48"
-              >
-                Sign up
-              </button>
-            </div>
-          </div>
+          
+        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-500 from-30% px-6 py-10 md:w-4/5 md:px-10">
+    <p className="text-6xl font-serif font-bold text-white md:text-6xl md:leading-tight">
+        CryptoxAI
+    </p>
+    <p className="text-3xl font-semibold font-serif text-white md:text-4xl md:leading-relaxed">
+        Empowering Your Cryptocurrency Journey with AI-driven Insights
+    </p>
+    <Link
+        href="/signup"
+        className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+    >
+        <span className="text-xl font-semibold">Sign Up</span><ArrowRightIcon className="w-5 md:w-6" />
+    </Link>
+</div>
+
         </section>
         <div className="flex justify-center md:w-1/3 md:justify-end">
           <div className="m-10">
