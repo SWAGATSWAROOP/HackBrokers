@@ -17,7 +17,7 @@ export default async function MarketNavbar() {
         </div>
         <div className="flex items-end">
           <h1 className="txt">market</h1>
-          <h1>trade</h1>
+          <h1>trade</h1>~
         </div>
       </div>
     </div>

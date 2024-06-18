@@ -21,6 +21,7 @@ const config = {
       fontFamily: {
         pacifico: "Pacifico",
         anton: "Anton",
+        roboto:"Roboto",
       },
 
       colors: {
