@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 export default async function Navbar() {
   const session = await getServerSession(Next_Auth_Config);
   return (
-    <div className="fixed left-0 right-0 top-0 z-10 border-b bg-gray-800 py-2">
+    <div className="fixed left-0 right-0 top-0 z-10 border-b bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-500 from-30% py-5">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <Link
