@@ -35,7 +35,7 @@ export default function Input() {
           />
           <button
             onClick={handleSubmit}
-            className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 m-3"
+            className="rounded-lg bg-green-500 px-4 py-2 text-white hover:bg-green-600 focus:outline-none focus:ring focus:ring-blue-200 m-3"
           >
             Submit
           </button>

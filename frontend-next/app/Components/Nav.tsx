@@ -30,13 +30,13 @@ export default function Nav() {
             </Link>
             <Link
               href="/trade"
-              className="relative group font-serif text-white transition duration-300 ease-in-out transform hover:scale-105"
+              className="relative group font-serif text-white transition duration-300 ease-in-out transform hover:scale-105 px-20"
             >
               Trade
               <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
             </Link>
             <Link
-              href="https://drive.google.com/file/d/1X6gnck4XwoY7YGqPxe3ReztPepbUo5oi/view"
+              href="#about"
               className="relative group font-serif text-white transition duration-300 ease-in-out transform hover:scale-105"
             >
               About
@@ -49,23 +49,23 @@ export default function Nav() {
         </div>
       </div>
 
-      <div className="mt-14 min-h-screen flex flex-col items-center md:mt-16 md:flex-row lg:mt-5">
+      <div className="mt-14 flex flex-col items-center md:mt-16 md:flex-row lg:mt-5">
         <section className="flex-1 md:ml-20 lg:ml-52">
-
-          <div className="flex flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-500 from-30% px-6 py-10 md:w-4/5 md:px-10">
-            <p className="text-4xl font-serif font-bold text-white md:text-4xl md:leading-tight">
-              CryptoxAI
-            </p>
-            <p className="text-xl font-semibold font-serif text-white md:text-2xl md:leading-relaxed">
-              Empowering Your Cryptocurrency Journey with AI-driven Insights
-            </p>
-            <Link
-              href="/signup"
-              className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
-            >
-              <span className="text-lg font-semibold">Sign Up</span><ArrowRightIcon className="w-3 md:w-4" />
-            </Link>
-          </div>
+          
+        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-500 from-30% px-6 py-10 md:w-4/5 md:px-10">
+    <p className="text-6xl font-serif font-bold text-white md:text-6xl md:leading-tight">
+        CryptoxAI
+    </p>
+    <p className="text-3xl font-semibold font-serif text-white md:text-4xl md:leading-relaxed">
+        Empowering Your Cryptocurrency Journey with AI-driven Insights
+    </p>
+    <Link
+        href="/signup"
+        className="flex items-center gap-5 self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
+    >
+        <span className="text-xl font-semibold">Sign Up</span><ArrowRightIcon className="w-5 md:w-6" />
+    </Link>
+</div>
 
         </section>
         <div className="flex justify-center md:w-1/3 md:justify-end">
