@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import Account from "@/app/artifacts/contracts/account.sol/Account.json";
+import Account from "@/artifacts/contracts/account.sol/Account.json";
 
 export const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
 export const address = String(process.env.CONTRACT_ADDRESS);
