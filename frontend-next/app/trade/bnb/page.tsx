@@ -33,13 +33,13 @@ export default function BNBCard() {
   async function buy() {
     const session = useSession();
     const email = sessionStorage.getItem("email");
-    const createUser = await contract.buy(email, 0, "Binance", 0);
+    const createUser = await contract.buy(email, 0, "BNB", 0);
     await createUser.wait();
   }
 
   async function sell() {
     const email = sessionStorage.getItem("email");
-    const createUser = await contract.sell(email, "Binance", 0, 0);
+    const createUser = await contract.sell(email, "BNB", 0, 0);
     await createUser.wait();
   }
   return (

@@ -30,13 +30,13 @@ export default function ETHCARD() {
 
   async function buy() {
     const email = sessionStorage.getItem("email");
-    const createUser = await contract.buy(email, 0, "Etherium", 0);
+    const createUser = await contract.buy(email, 0, "ETH", 0);
     await createUser.wait();
   }
 
   async function sell() {
     const email = sessionStorage.getItem("email");
-    const createUser = await contract.sell(email, "Etherium", 0, 0);
+    const createUser = await contract.sell(email, "ETH", 0, 0);
     await createUser.wait();
   }
 

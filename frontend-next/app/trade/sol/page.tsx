@@ -30,13 +30,13 @@ export default function SOLCard() {
 
   async function buy() {
     const email = sessionStorage.getItem("email");
-    const createUser = await contract.buy(email, 0, "Solana", 0);
+    const createUser = await contract.buy(email, 0, "SOL", 0);
     await createUser.wait();
   }
 
   async function sell() {
     const email = sessionStorage.getItem("email");
-    const createUser = await contract.sell(email, "Solana", 0, 0);
+    const createUser = await contract.sell(email, "SOL", 0, 0);
     await createUser.wait();
   }
 

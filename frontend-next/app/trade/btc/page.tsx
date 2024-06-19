@@ -16,32 +16,32 @@ export default function BitcoinCard() {
     inc: 23,
   };
 
-  useEffect(() => {
-    const fetchImage = async () => {
-      console.log("Change occurred");
-      try {
-        const res = await axios.get(
-          `http://127.0.0.1:5000/upload?days=${days}&type=btc`,
-        );
-        console.log(res);
-        setImageUrl(res.data.secure_url);
-      } catch (error) {
-        console.error("Error fetching image:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchImage = async () => {
+  //     console.log("Change occurred");
+  //     try {
+  //       const res = await axios.get(
+  //         `http://127.0.0.1:5000/upload?days=${days}&type=btc`,
+  //       );
+  //       console.log(res);
+  //       setImageUrl(res.data.secure_url);
+  //     } catch (error) {
+  //       console.error("Error fetching image:", error);
+  //     }
+  //   };
 
-    fetchImage();
-  }, [days]);
+  //   fetchImage();
+  // }, [days]);
 
   async function buy() {
     const email = sessionStorage.getItem("email");
-    const createUser = await contract.buy(email, 0, "Bitcoin", 0);
+    const createUser = await contract.buy(email, 0, "BTC", 0);
     await createUser.wait();
   }
 
   async function sell() {
     const email = sessionStorage.getItem("email");
-    const createUser = await contract.sell(email, "Bitcoin", 0, 0);
+    const createUser = await contract.sell(email, "BTC", 0, 0);
     await createUser.wait();
   }
 
