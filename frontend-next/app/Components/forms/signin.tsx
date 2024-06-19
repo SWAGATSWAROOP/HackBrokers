@@ -66,7 +66,6 @@ export default function SignInComponent() {
     }
   }
   return (
-    
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className=" p-6">
         <div>
@@ -75,7 +74,9 @@ export default function SignInComponent() {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="mb-2 mt-5 text-white block text-xs font-2xl">Email</FormLabel>
+                <FormLabel className="font-2xl mb-2 mt-5 block text-xs text-white">
+                  Email
+                </FormLabel>
                 <FormControl>
                   <Input
                     type="email"
@@ -92,7 +93,9 @@ export default function SignInComponent() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="mb-2 mt-5 text-white block text-xs font-2xl">Password</FormLabel>
+                <FormLabel className="font-2xl mb-2 mt-5 block text-xs text-white">
+                  Password
+                </FormLabel>
                 <FormControl>
                   <Input type="password" placeholder="********" {...field} />
                 </FormControl>
@@ -105,10 +108,9 @@ export default function SignInComponent() {
           Sign In
         </Button>
       </form>
-      <div className=" text-white mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
+      <div className=" mx-auto my-4 flex w-full items-center justify-evenly text-white before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
         or
       </div>
-
       <p className=" mt-2 text-center text-sm font-semibold text-white">
         If you don&apos;t have an account please&nbsp;
         <Link className="text-white" href="/signup">
@@ -116,6 +118,5 @@ export default function SignInComponent() {
         </Link>
       </p>
     </Form>
-    
   );
 }

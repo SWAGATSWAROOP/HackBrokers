@@ -1,16 +1,16 @@
 "use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { ethers } from "ethers";
 import Account from "../../contracts/account.sol/Account.json";
+import { contract } from "@/lib/constant";
 
 export default function BitcoinCard() {
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState(
-    "https://res.cloudinary.com/djtudleky/image/upload/v1717468043/ogib3zfczrxpyfeo6mod.png"
+    "https://res.cloudinary.com/djtudleky/image/upload/v1717468043/ogib3zfczrxpyfeo6mod.png",
   );
 
   const data = {
@@ -23,7 +23,7 @@ export default function BitcoinCard() {
       console.log("Change occurred");
       try {
         const res = await axios.get(
-          `http://127.0.0.1:5000/upload?days=${days}&type=btc`
+          `http://127.0.0.1:5000/upload?days=${days}&type=btc`,
         );
         console.log(res);
         setImageUrl(res.data.secure_url);
@@ -36,13 +36,6 @@ export default function BitcoinCard() {
   }, [days]);
 
   async function buy() {
-    let provider = new ethers.JsonRpcProvider();
-    let signer = await provider.getSigner();
-    let contract = new ethers.Contract(
-      "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      Account.abi,
-      signer
-    );
     const email = sessionStorage.getItem("email");
     const createUser = await contract.buy(email, 0, "Bitcoin", 0);
     await createUser.wait();
@@ -54,7 +47,7 @@ export default function BitcoinCard() {
     let contract = new ethers.Contract(
       "0x5FbDB2315678afecb367f032d93F642f64180aa3",
       Account.abi,
-      signer
+      signer,
     );
     const email = sessionStorage.getItem("email");
     const createUser = await contract.sell(email, "Bitcoin", 0, 0);
@@ -63,14 +56,14 @@ export default function BitcoinCard() {
 
   return (
     <>
-      <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-pink-700 via-purple-900 to-indigo-900 from-30%">
-        <div className="w-full bg-gradient-to-r from-pink-700 via-purple-900 to-indigo-900 py-4 text-3xl text-white font-serif font-bold text-center">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-pink-700 from-30% via-purple-900 to-indigo-900">
+        <div className="w-full bg-gradient-to-r from-pink-700 via-purple-900 to-indigo-900 py-4 text-center font-serif text-3xl font-bold text-white">
           Crypto Analyzer
         </div>
         <div className="m-4 overflow-hidden rounded bg-gray-300 p-8 shadow-lg">
-          <div className="flex flex-col md:flex-row items-center p-4">
+          <div className="flex flex-col items-center p-4 md:flex-row">
             <select
-              className="mb-4 md:mb-0 rounded border p-2"
+              className="mb-4 rounded border p-2 md:mb-0"
               value={days}
               onChange={(e) => setDays(Number(e.target.value))}
             >
@@ -78,14 +71,14 @@ export default function BitcoinCard() {
               <option value={30}>30 Days</option>
               <option value={365}>365 Days</option>
             </select>
-            <div className="flex justify-center w-full md:w-2/3 lg:w-1/2 p-3">
+            <div className="flex w-full justify-center p-3 md:w-2/3 lg:w-1/2">
               <img
                 src={imageUrl}
                 alt="Bitcoin Image"
-                className="rounded w-full h-auto"
+                className="h-auto w-full rounded"
               />
             </div>
-            <div className="px-6 py-4 w-full md:w-1/3 lg:w-1/2">
+            <div className="w-full px-6 py-4 md:w-1/3 lg:w-1/2">
               <div className="mb-2 text-center text-xl font-bold">
                 Bitcoin (BTC):
               </div>
@@ -98,10 +91,10 @@ export default function BitcoinCard() {
               <div className="m-4 flex flex-col items-center">
                 <input
                   placeholder="Enter the number of crypto"
-                  className="p-5 w-80 rounded-lg"
+                  className="w-80 rounded-lg p-5"
                   type="number"
                 />
-                <div className="flex space-x-4 mt-4">
+                <div className="mt-4 flex space-x-4">
                   <button
                     className="rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
                     onClick={buy}
@@ -119,7 +112,7 @@ export default function BitcoinCard() {
             </div>
           </div>
 
-          <div className="flex flex-row justify-between ml-12 mr-12 mt-4">
+          <div className="ml-12 mr-12 mt-4 flex flex-row justify-between">
             <div className="flex w-1/2 flex-row justify-around">
               <div className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />

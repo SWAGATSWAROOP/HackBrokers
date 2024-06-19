@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
-import { buttonVariants } from "../ui/button";
 import { Button } from "../ui/button";
 import { useToast } from "../ui/use-toast";
 
@@ -31,7 +30,7 @@ const AuthButtons = () => {
         <div className="px-2 ">
           <Link
             href={"/signin"}
-            className="bg-black hover:bg-gradient-to-r from-black from-10% to-blue-500 px-4 py-2 text-white rounded-xl"
+            className="rounded-xl bg-black from-black from-10% to-blue-500 px-4 py-2 text-white hover:bg-gradient-to-r"
           >
             Sign In
           </Link>
@@ -39,7 +38,7 @@ const AuthButtons = () => {
         <div className="px-2">
           <Link
             href={"/signup"}
-            className="bg-black hover:bg-gradient-to-r from-black from-10% to-blue-500 px-4 py-2 text-white rounded-xl"
+            className="rounded-xl bg-black from-black from-10% to-blue-500 px-4 py-2 text-white hover:bg-gradient-to-r"
           >
             Register
           </Link>
