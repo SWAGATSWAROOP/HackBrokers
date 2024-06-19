@@ -1,13 +1,20 @@
 from flask import Flask, render_template
+import pandas as pd
 
 app = Flask(__name__)
+
+# Function to read probabilities from CSV file
+def read_probabilities_from_csv(file_path):
+    df = pd.read_csv(file_path)
+    probability_increase = df.iloc[0]['Probability of Increase']
+    probability_decrease = df.iloc[0]['Probability of Decrease']
+    return probability_decrease, probability_increase
 
 # Define route to display probabilities
 @app.route('/')
 def index():
-    # Define probabilities (you can fetch these from a database or other source)
-    probability_decrease = 0.73
-    probability_increase = 0.27
+    # Read probabilities from CSV file
+    probability_decrease, probability_increase = read_probabilities_from_csv('probabilities.csv')
     
     # Render HTML template with probabilities passed as variables
     return render_template('index.html', prob_decrease=probability_decrease, prob_increase=probability_increase)
