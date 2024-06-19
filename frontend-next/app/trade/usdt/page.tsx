@@ -1,11 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { contract } from "@/lib/constant";
 
 export default function BitcoinCard() {
+  const ref = useRef<HTMLInputElement>(null);
   const [days, setDays] = useState(7);
   // const [imageUrl, setImageUrl] = useState(
   //   "https://res.cloudinary.com/djtudleky/image/upload/v1717478844/nortj8odc3e4blwsoxie.png",
@@ -77,6 +78,7 @@ export default function BitcoinCard() {
                 placeholder="Enter the number of crypto"
                 className="w-80 rounded-lg p-5"
                 type="number"
+                ref={ref}
               />
               <div className="mt-4 flex space-x-4">
                 <button
