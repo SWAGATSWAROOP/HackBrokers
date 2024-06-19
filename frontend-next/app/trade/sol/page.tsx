@@ -3,42 +3,97 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { contract } from "@/lib/constant";
+import { ethers } from "ethers";
+import Account from "../../artifacts/contracts/account.sol/Account.json";
 
 export default function SOLCard() {
   const [days, setDays] = useState(7);
-  // const [imageUrl, setImageUrl] = useState(
-  //   "https://res.cloudinary.com/djtudleky/image/upload/v1717474460/wt1gtzmvctpw7ehtilpk.png",
-  // );
+  const [imageUrl, setImageUrl] = useState("");
 
-  // useEffect(() => {
-  //   const fetchImage = async () => {
-  //     console.log("Change occurred");
-  //     try {
-  //       const res = await axios.get(
-  //         `http://127.0.0.1:5000/upload?days=${days}&type=sol`,
-  //       );
-  //       console.log(res);
-  //       setImageUrl(res.data.secure_url);
-  //     } catch (error) {
-  //       console.error("Error fetching image:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchImage = async () => {
+      console.log("Change occurred");
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=${days}&type=sol`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
 
-  //   fetchImage();
-  // }, [days]);
+    fetchImage();
+  }, [days]);
+  useEffect(() => {
+    const fetchImage = async () => {
+      console.log("Change occured");
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=7&type=sol`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
 
-  // async function buy() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.buy(email, 0, "Solana", 0);
-  //   await createUser.wait();
-  // }
+    fetchImage();
+  }, []);
 
-  // async function sell() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.sell(email, "Solana", 0, 0);
-  //   await createUser.wait();
-  // }
+  async function buy() {
+    try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
+      const createUser = await contract.buy(
+        "swagatswaroop@gmail.com",
+        0,
+        "SOL",
+        0,
+      );
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
+  }
+
+  async function sell() {
+    try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
+      const createUser = await contract.sell(
+        "swagatswaroop@gmail.com",
+        "SOL",
+        0,
+        0,
+      );
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
+  }
 
   return (
     <>
@@ -58,11 +113,11 @@ export default function SOLCard() {
               <option value={365}>365 Days</option>
             </select>
             <div className="flex w-full justify-center p-3 md:w-2/3 lg:w-1/2">
-              {/* <img
+              <img
                 src={imageUrl}
-                alt="BNB Image"
+                alt="SOL Image"
                 className="h-auto w-full rounded"
-              /> */}
+              />
             </div>
             <div className="w-full px-6 py-4 md:w-1/3 lg:w-1/2">
               <div className="mb-2 text-center text-xl font-bold">BNB:</div>
@@ -83,13 +138,13 @@ export default function SOLCard() {
                 <div className="mt-4 flex space-x-4">
                   <button
                     className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
-                    // onClick={buy}
+                    onClick={buy}
                   >
                     Buy
                   </button>
                   <button
                     className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base"
-                    // onClick={sell}
+                    onClick={sell}
                   >
                     Sell
                   </button>

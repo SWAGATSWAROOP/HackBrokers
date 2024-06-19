@@ -3,46 +3,99 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { useSession } from "next-auth/react";
-import { contract } from "@/lib/constant";
+import { ethers } from "ethers";
+import Account from "../../artifacts/contracts/account.sol/Account.json";
 
 export default function BNBCard() {
-  const ref = useRef(null);
   const [days, setDays] = useState(7);
-  // const [imageUrl, setImageUrl] = useState(
-  //   "https://res.cloudinary.com/djtudleky/image/upload/v1717474425/bzpmv6wreqw1zd5lrced.png",
-  // );
+  const [imageUrl, setImageUrl] = useState("");
 
-  // useEffect(() => {
-  //   const fetchImage = async () => {
-  //     console.log("Change occured");
-  //     try {
-  //       const res = await axios.get(
-  //         `http://127.0.0.1:5000/upload?days=${days}&type=bnb`,
-  //       );
-  //       console.log(res);
-  //       setImageUrl(res.data.secure_url);
-  //     } catch (error) {
-  //       console.error("Error fetching image:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchImage = async () => {
+      console.log("Change occured");
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=${days}&type=BNB`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
 
-  //   fetchImage();
-  // }, [days]);
+    fetchImage();
+  }, [days]);
 
-  // async function buy() {
-  //   const session = useSession();
-  //   console.log(session);
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.buy(email, 0, "Binance", 0);
-  //   await createUser.wait();
-  // }
+  useEffect(() => {
+    const fetchImage = async () => {
+      console.log("Change occured");
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=7&type=BNB`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
 
-  // async function sell() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.sell(email, "Binance", 0, 0);
-  //   await createUser.wait();
-  // }
+    fetchImage();
+  }, []);
+
+  async function buy() {
+    try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
+      const createUser = await contract.buy(
+        "swagatswaroop@gmail.com",
+        0,
+        "BNB",
+        0,
+      );
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
+  }
+
+  async function sell() {
+    try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
+      const createUser = await contract.sell(
+        "swagatswaroop@gmail.com",
+        "BNB",
+        0,
+        0,
+      );
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-pink-700 from-30% via-purple-900 to-indigo-900">
       <div className="w-full bg-gradient-to-r from-pink-700 via-purple-900 to-indigo-900 py-4 text-center font-serif text-3xl font-bold text-white">
@@ -60,13 +113,13 @@ export default function BNBCard() {
             <option value={365}>365 Days</option>
           </select>
           <div className="flex w-full justify-center p-3 md:w-2/3 lg:w-1/2">
-            {/* <img
+            <img
               src={imageUrl}
               alt="BNB Image"
               width={2000}
               height={1000}
               className="rounded"
-            /> */}
+            />
           </div>
           <div className="w-full px-6 py-4 md:w-1/3 lg:w-1/2">
             <div className="mb-2 text-center text-xl font-bold">BNB:</div>
@@ -106,13 +159,13 @@ export default function BNBCard() {
           <div className="flex w-1/2 flex-row justify-around">
             <button
               className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
-              // onClick={buy}
+              onClick={buy}
             >
               Buy
             </button>
             <button
               className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base"
-              // onClick={sell}
+              onClick={sell}
             >
               Sell
             </button>

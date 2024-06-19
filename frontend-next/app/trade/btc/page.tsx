@@ -4,48 +4,102 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { ethers } from "ethers";
-import Account from "../../contracts/account.sol/Account.json";
-import { contract } from "@/lib/constant";
-import Image from "next/image";
+import Account from "../../artifacts/contracts/account.sol/Account.json";
 
 export default function BitcoinCard() {
   const [days, setDays] = useState(7);
-  // const [imageUrl, setImageUrl] = useState(
-  //   "https://res.cloudinary.com/djtudleky/image/upload/v1717468043/ogib3zfczrxpyfeo6mod.png"
-  // );
+  const [imageUrl, setImageUrl] = useState("");
 
-  // useEffect(() => {
-  //   const fetchImage = async () => {
-  //     try {
-  //       const res = await axios.get(
-  //         `http://127.0.0.1:5000/upload?days=${days}&type=btc`
-  //       );
-  //       setImageUrl(res.data.secure_url);
-  //     } catch (error) {
-  //       console.error("Error fetching image:", error);
-  //     }
-  //   };
-  //   fetchImage();
-  // }, [days]);
+  const data = {
+    desc: 12,
+    inc: 23,
+  };
 
-  // async function buy() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.buy(email, 0, "Bitcoin", 0);
-  //   await createUser.wait();
-  // }
+  useEffect(() => {
+    const fetchImage = async () => {
+      console.log("Change occurred");
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=${days}&type=btc`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
 
-  // async function sell() {
-  //   let provider = new ethers.JsonRpcProvider();
-  //   let signer = await provider.getSigner();
-  //   let contract = new ethers.Contract(
-  //     "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-  //     Account.abi,
-  //     signer
-  //   );
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.sell(email, "Bitcoin", 0, 0);
-  //   await createUser.wait();
-  // }
+    fetchImage();
+  }, [days]);
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      console.log("Change occured");
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=7&type=btc`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
+
+    fetchImage();
+  }, []);
+
+  async function buy() {
+    try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
+      const createUser = await contract.buy(
+        "swagatswaroop@gmail.com",
+        0,
+        "BTC",
+        0,
+      );
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
+  }
+
+  async function sell() {
+    try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
+      const createUser = await contract.sell(
+        "swagatswaroop@gmail.com",
+        "BTC",
+        0,
+        0,
+      );
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
+  }
 
   return (
     <>
@@ -65,15 +119,11 @@ export default function BitcoinCard() {
               <option value={365}>365 Days</option>
             </select>
             <div className="flex w-full justify-center p-3 md:w-2/3 lg:w-1/2">
-              <div className="relative w-full h-auto">
-                {/* <Image
-                  src={imageUrl}
-                  alt="Bitcoin Image"
-                  layout="fill"
-                  objectFit="cover"~
-                  className="rounded"
-                /> */}
-              </div>
+              <img
+                src={imageUrl}
+                alt="Bitcoin Image"
+                className="h-auto w-full rounded"
+              />
             </div>
             <div className="w-full px-6 py-4 md:w-1/3 lg:w-1/2">
               <div className="mb-2 text-center text-xl font-bold">
@@ -94,13 +144,13 @@ export default function BitcoinCard() {
                 <div className="mt-4 flex space-x-4">
                   <button
                     className="rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
-                    // onClick={buy}
+                    onClick={buy}
                   >
                     Buy
                   </button>
                   <button
                     className="rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base"
-                    // onClick={sell}
+                    onClick={sell}
                   >
                     Sell
                   </button>
@@ -114,13 +164,13 @@ export default function BitcoinCard() {
               <div className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
                 <h1 className="pl-4 text-white">
-                  <strong>0.4670%</strong>
+                  <strong>0.32007%</strong>
                 </h1>
               </div>
               <div className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
                 <h1 className="pl-4 text-white">
-                  <strong>0.5330%</strong>
+                  <strong>0.6800%</strong>
                 </h1>
               </div>
             </div>

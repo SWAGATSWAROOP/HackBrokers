@@ -77,7 +77,7 @@ export default function Nav() {
                   View real-time cryptocurrency data & trends
                 </p>
                 <Link
-                  href="/https://crypto-sand-ten.vercel.app/"
+                  href="https://crypto-sand-ten.vercel.app/"
                   className="inline-flex items-center justify-center gap-3 rounded-full bg-green-500 px-6 py-3 font-serif text-lg font-semibold text-white transition-all duration-300 hover:bg-green-600 hover:shadow-lg hover:text-black md:text-xl"
                 >
                   <span>Real Time crypto Updates</span>
@@ -129,11 +129,11 @@ export default function Nav() {
 
       <div className="flex flex-col justify-center items-center my-20">
         <div className="text-center">
-          <div className="text-white text-[50px] font-pacifico">
+          <div className="text-white text-[50px] font-pacifico pb-5">
             Then what are you waiting for
           </div>
           <div className="text-white text-3xl font-anton tracking-2xl pb-10">
-            Start Trading with CryptoXAI
+            Start Trading with CRYPTOxAI
           </div>
           <Link
             href="/signup"
