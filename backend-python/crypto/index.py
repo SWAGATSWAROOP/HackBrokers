@@ -93,4 +93,5 @@ def schedule_model_training():
     return "Model is successfully trained again"
 
 if __name__ == '__main__': 
+    
     app.run(port=5000, debug=True)
