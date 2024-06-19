@@ -1,5 +1,5 @@
 import express from "express";
-import cors from 'cors'
+import cors from "cors";
 const app = express();
 app.use(cors());
 const port = 4000;
@@ -48,9 +48,12 @@ app.post("/query", async (req, res) => {
     );
     const queryData = await queryResponse.json();
     console.log(queryData);
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Allow requests from this origin
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Allowed methods
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allowed headers
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); // Allow requests from this origin
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"); // Allowed methods
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    ); // Allowed headers
     res.json(queryData);
   } catch (error) {
     console.error(error);
