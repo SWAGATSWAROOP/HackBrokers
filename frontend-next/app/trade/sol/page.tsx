@@ -28,17 +28,17 @@ export default function SOLCard() {
   //   fetchImage();
   // }, [days]);
 
-  // async function buy() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.buy(email, 0, "Solana", 0);
-  //   await createUser.wait();
-  // }
+  async function buy() {
+    const email = sessionStorage.getItem("email");
+    const createUser = await contract.buy(email, 0, "SOL", 0);
+    await createUser.wait();
+  }
 
-  // async function sell() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.sell(email, "Solana", 0, 0);
-  //   await createUser.wait();
-  // }
+  async function sell() {
+    const email = sessionStorage.getItem("email");
+    const createUser = await contract.sell(email, "SOL", 0, 0);
+    await createUser.wait();
+  }
 
   return (
     <>
@@ -83,13 +83,13 @@ export default function SOLCard() {
                 <div className="mt-4 flex space-x-4">
                   <button
                     className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
-                    // onClick={buy}
+                    onClick={buy}
                   >
                     Buy
                   </button>
                   <button
                     className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base"
-                    // onClick={sell}
+                    onClick={sell}
                   >
                     Sell
                   </button>

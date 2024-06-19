@@ -1,11 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { contract } from "@/lib/constant";
 
 export default function BitcoinCard() {
+  const ref = useRef<HTMLInputElement>(null);
   const [days, setDays] = useState(7);
   // const [imageUrl, setImageUrl] = useState(
   //   "https://res.cloudinary.com/djtudleky/image/upload/v1717478844/nortj8odc3e4blwsoxie.png",
@@ -26,17 +27,17 @@ export default function BitcoinCard() {
   //   fetchImage();
   // }, [days]);
 
-  // async function buy() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.buy(email, 0, "USDT", 0);
-  //   await createUser.wait();
-  // }
+  async function buy() {
+    const email = sessionStorage.getItem("email");
+    const createUser = await contract.buy(email, 0, "USDT", 0);
+    await createUser.wait();
+  }
 
-  // async function sell() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.sell(email, "USDT", 0, 0);
-  //   await createUser.wait();
-  // }
+  async function sell() {
+    const email = sessionStorage.getItem("email");
+    const createUser = await contract.sell(email, "USDT", 0, 0);
+    await createUser.wait();
+  }
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-pink-700 from-30% via-purple-900 to-indigo-900">
@@ -67,8 +68,8 @@ export default function BitcoinCard() {
             <div className="mb-2 text-center text-xl font-bold">USDT</div>
             <p className="text-center text-base text-gray-700">
               Tether is a cryptocurrency stablecoin, launched by the company
-              Tether Limited Inc. in 2014. As of January 2024,the website
-              lists fourteen protocols and blockchains on which Tether has been
+              Tether Limited Inc. in 2014. As of January 2024,the website lists
+              fourteen protocols and blockchains on which Tether has been
               minted. Tether has been criticized for a lack of transparency and
               verifiability of its claimed fiat reserves.
             </p>
@@ -77,17 +78,18 @@ export default function BitcoinCard() {
                 placeholder="Enter the number of crypto"
                 className="w-80 rounded-lg p-5"
                 type="number"
+                ref={ref}
               />
               <div className="mt-4 flex space-x-4">
                 <button
                   className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
-                  // onClick={buy}
+                  onClick={buy}
                 >
                   BUY
                 </button>
                 <button
                   className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base"
-                  // onClick={sell}
+                  onClick={sell}
                 >
                   SELL
                 </button>
