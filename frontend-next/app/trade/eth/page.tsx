@@ -8,27 +8,52 @@ import Account from "@/artifacts/contracts/account.sol/Account.json";
 
 export default function ETHCARD() {
   const [days, setDays] = useState(7);
-  // const [imageUrl, setImageUrl] = useState(
-  //   "https://res.cloudinary.com/djtudleky/image/upload/v1717478752/pkpxzxkarecwfiqwgsi2.png",
-  // );
+  const [imageUrl, setImageUrl] = useState("");
 
-  // useEffect(() => {
-  //   const fetchImage = async () => {
-  //     console.log("Change occurred");
-  //     try {
-  //       const res = await axios.get(
-  //         `http://127.0.0.1:5000/upload?days=${days}&type=eth`,
-  //       );
-  //       console.log(res);
-  //       setImageUrl(res.data.secure_url);
-  //     } catch (error) {
-  //       console.error("Error fetching image:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchImage = async () => {
+      console.log("Change occurred");
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=${days}&type=eth`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
 
-  //   fetchImage();
-  // }, [days]);
+    fetchImage();
+  }, [days]);
 
+  useEffect(() => {
+    const fetchImage = async () => {
+      console.log("Change occured");
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=7&type=eth`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
+
+    fetchImage();
+  }, []);
+  // async function buy() {
+  //   const email = sessionStorage.getItem("email");
+  //   const createUser = await contract.buy(email, 0, "ETH", 0);
+  //   await createUser.wait();
+  // }
+
+  // async function sell() {
+  //   const email = sessionStorage.getItem("email");
+  //   const createUser = await contract.sell(email, "ETH", 0, 0);
+  //   await createUser.wait();
+  // }
   async function buy() {
     try {
       const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
@@ -91,11 +116,11 @@ export default function ETHCARD() {
               <option value={365}>365 Days</option>
             </select>
             <div className="flex w-full justify-center p-3 md:w-2/3 lg:w-1/2">
-              {/* <img
+              <img
                 src={imageUrl}
                 alt="Ethereum Image"
                 className="h-auto w-full rounded"
-              /> */}
+              />
             </div>
             <div className="w-full px-6 py-4 md:w-1/3 lg:w-1/2">
               <div className="mb-2 text-center text-xl font-bold">
