@@ -113,13 +113,13 @@ export default function ETHCARD() {
               <div className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
                 <h1 className="pl-4 text-white">
-                  <strong>0.39%</strong>
+                  <strong>0.4576%</strong>
                 </h1>
               </div>
               <div className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
                 <h1 className="pl-4 text-white">
-                  <strong>0.61%</strong>
+                  <strong>0.5424%</strong>
                 </h1>
               </div>
             </div>

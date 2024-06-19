@@ -114,13 +114,13 @@ export default function BitcoinCard() {
               <div className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
                 <h1 className="pl-4 text-white">
-                  <strong>0.32007%</strong>
+                  <strong>0.4670%</strong>
                 </h1>
               </div>
               <div className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
                 <h1 className="pl-4 text-white">
-                  <strong>0.6800%</strong>
+                  <strong>0.5330%</strong>
                 </h1>
               </div>
             </div>

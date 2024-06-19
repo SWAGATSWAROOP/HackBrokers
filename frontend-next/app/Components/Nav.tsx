@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import HomeNavbar from "./Home";
+import { ArrowBigRightIcon } from "lucide-react";
 
 export default function Nav() {
   const router = useRouter();
@@ -10,114 +11,141 @@ export default function Nav() {
     <>
       <HomeNavbar />
       <div className="flex flex-col text-black">
-
-        <div className="flex min-h-screen justify-left items-center bg-sky-100 border-2 border-[#fe8d88]">
-          <div className="mt-10 flex flex-col items-center md:mt-10 md:flex-row lg:mt-5">
-            <section className="flex-1 md:ml-20 lg:ml-52">
-
-              <div className="flex  text-center flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-700 to-indigo-400 from-30% px-6 py-10 md:w-4/5 md:px-10">
-                <p className="text-6xl font-serif font-bold text-white md:text-6xl md:leading-tight">
+        <div className="flex min-h-screen items-center bg-sky-100 border-2 border-[#fe8d88]">
+          <div className="flex flex-col items-center md:flex-row lg:mt-5">
+            <section className="flex-1 md:mr-10 lg:mr-20 md:ml-10 lg:ml-20">
+              <div className="flex flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-indigo-600 via-purple-900 to-indigo-900 px-6 py-10 md:px-10">
+                <p className="text-center text-5xl font-serif font-bold text-white md:text-6xl md:leading-tight">
                   Analyze your portfolio
                 </p>
-                <p className="text-3xl text-center font-semibold font-serif text-white md:text-4xl md:leading-relaxed">
-                  AI driven insights that help user anticipate market analysis
+                <p className="text-center text-2xl font-semibold font-serif text-white md:text-4xl md:leading-relaxed">
+                  AI driven insights that help users anticipate market trends
                 </p>
-
+                <Link
+                  href="/trade"
+                  className="inline-flex items-center justify-center gap-3 rounded-full font-serif bg-green-500 px-6 py-3 text-lg font-semibold text-white transition-all duration-300 hover:bg-green-600 hover:shadow-lg hover:text-black md:text-xl"
+                >
+                  <span>Get Started</span>
+                  <ArrowBigRightIcon className="w-6 h-6" />
+                </Link>
               </div>
-
             </section>
+
             <div className="flex justify-center md:w-1/3 md:justify-end">
-              <div className="m-10">
-                <Image src="/portfolioanalyze.png" alt="image" width={620} height={640} />
+              <div className="m-5 md:m-10 lg:m-10">
+                <Image src="/portfolioanalyze.png" alt="Portfolio Analyze" width={620} height={640} />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="flex min-h-screen justify-left items-center bg-indigo-400">
-        <div className="mt-10 flex flex-col items-center md:mt-10 md:flex-row lg:mt-5">
-            <section className="flex-1 md:ml-20 lg:ml-52">
 
-              <div className="flex flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-indigo-600 via-purple-900 to-indigo-900 from-30% px-6 py-10 md:w-4/5 md:px-10">
-                <p className="text-center text-6xl font-serif font-bold text-white md:text-6xl md:leading-tight">
-                Price Prediction
+        <div className="flex min-h-screen items-center bg-indigo-400">
+          <div className="flex flex-col items-center md:flex-row-reverse lg:mt-5">
+            <section className="flex-1 md:mr-10 lg:mr-20">
+              <div className="flex flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-indigo-600 via-purple-900 to-indigo-900 px-6 py-10 md:px-10">
+                <p className="text-center text-5xl font-serif font-bold text-white md:text-6xl md:leading-tight">
+                  Price Prediction
                 </p>
-                <p className="text-3xl text-center font-semibold font-serif text-white md:text-4xl md:leading-relaxed">
-                  Prediction of Future Crypto prizes using Advanced Machine Learning Techniques 
+                <p className="text-center text-2xl font-semibold font-serif text-white md:text-4xl md:leading-relaxed">
+                  Predict future crypto prices using advanced machine learning techniques
                 </p>
-
+                <Link
+                  href="/trade"
+                  className="inline-flex items-center justify-center gap-3 rounded-full font-serif bg-yellow-500 px-6 py-3 text-lg font-semibold text-white transition-all duration-300 hover:bg-yellow-400 hover:shadow-lg hover:text-black md:text-xl"
+                >
+                  <span>See Pridictions</span>
+                  <ArrowBigRightIcon className="w-6 h-6" />
+                </Link>
               </div>
-
+            </section>
+            <div className="flex justify-center md:w-1/3 md:justify-start">
+              <div className="md:m-5">
+                <Image src="/pricepredict.png" alt="Price Prediction" width={620} height={640} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex min-h-screen items-center justify-center bg-violet-200 border-2 border-[#e67b76]">
+          <div className="flex flex-col items-center md:flex-row lg:mt-5">
+            <section className="flex-1 md:mr-10 lg:mr-20 md:ml-10 lg:ml-20">
+              <div className="flex flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-indigo-600 via-purple-900 to-indigo-900 px-6 py-10 md:px-10">
+                <p className="text-center text-5xl font-serif font-bold text-white md:text-6xl md:leading-tight">
+                  Market Analysis
+                </p>
+                <p className="text-center text-2xl font-semibold font-serif text-white md:text-4xl md:leading-relaxed">
+                  View real-time cryptocurrency data & trends
+                </p>
+                <Link
+                  href="/https://crypto-sand-ten.vercel.app/"
+                  className="inline-flex items-center justify-center gap-3 rounded-full bg-green-500 px-6 py-3 font-serif text-lg font-semibold text-white transition-all duration-300 hover:bg-green-600 hover:shadow-lg hover:text-black md:text-xl"
+                >
+                  <span>Real Time crypto Updates</span>
+                  <ArrowBigRightIcon className="w-6 h-6" />
+                </Link>
+              </div>
             </section>
             <div className="flex justify-center md:w-1/3 md:justify-end">
-              <div className="m-10">
-                <Image src="/pricepredict.png" alt="image" width={620} height={640} />
+              <div className="m-5 md:m-10 lg:m-10">
+                <Image src="/marketanalysis.png" alt="Market Analysis" width={620} height={640} />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="flex min-h-screen justify-left items-center bg-violet-100 border-2 border-[#fe8d88]">
-        <div className="mt-10 flex flex-col items-center md:mt-10 md:flex-row lg:mt-5">
-            <section className="flex-1 md:ml-20 lg:ml-52">
 
-              <div className="flex flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-violet-400 via-purple-500 to-orange-300 from-30% px-6 py-10 md:w-4/5 md:px-10">
-                <p className="text-center text-6xl font-serif font-bold text-white md:text-6xl md:leading-tight">
-                Market Analysis
+
+        <div className="flex min-h-screen items-center bg-sky-100">
+          <div className="flex flex-col items-center md:flex-row-reverse lg:mt-5 lg:mx-auto">
+            <section className="flex-1 md:mr-10 lg:mr-20 md:ml-10 lg:ml-20">
+              <div className="flex flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-indigo-600 via-purple-900 to-indigo-900 px-6 py-10 md:px-10">
+                <p className="text-center text-5xl font-serif font-bold text-white md:text-6xl md:leading-tight">
+                  Secure Transactions
                 </p>
-                <p className="text-3xl text-center font-semibold font-serif text-white md:text-4xl md:leading-relaxed">
-                View real-time cryptocurrencies data & Trends
+                <p className="text-center text-2xl font-semibold font-serif text-white md:text-4xl md:leading-relaxed">
+                  Blockchain integration for decentralized storage
                 </p>
+                <Link
+                  href="/trade"
+                  className="inline-flex items-center justify-center gap-3 rounded-full font-serif bg-yellow-500 px-6 py-3 text-lg font-semibold text-white transition-all duration-300 hover:bg-yellow-400 hover:shadow-lg hover:text-black md:text-xl w-auto"
+                >
+                  <span>Let&apos;s Go</span>
+                  <ArrowBigRightIcon className="w-6 h-6" />
+                </Link>
 
               </div>
-
             </section>
-            <div className="flex justify-center md:w-1/3 md:justify-end">
-              <div className="m-10">
-                <Image src="/marketanalysis.png" alt="image" width={620} height={640} />
-              </div>
-            </div>
-          </div>
-          
-        </div>
-
-        <div className="flex min-h-screen justify-left items-center bg-sky-100">
-        <div className="mt-10 flex flex-col items-center md:mt-10 md:flex-row lg:mt-5">
-            <section className="flex-1 md:ml-20 lg:ml-52">
-
-              <div className="flex flex-col justify-center gap-6 rounded-lg bg-gradient-to-r from-violet-400 via-purple-500 to-orange-300 from-30% px-6 py-10 md:w-4/5 md:px-10">
-                <p className="text-center text-6xl font-serif font-bold text-white md:text-6xl md:leading-tight">
-                Secure Transactions
-                </p>
-                <p className="text-3xl text-center font-semibold font-serif text-white md:text-4xl md:leading-relaxed">
-                Blockchain Integration for decentralized storage. 
-                </p>
-
-              </div>
-
-            </section>
-            <div className="flex justify-center md:w-1/3 md:justify-end">
-              <div className="m-10">
-                <Image src="/blockchain.png" alt="image" width={620} height={640} />
+            <div className="flex justify-center md:w-1/3 md:justify-start">
+              <div className="m-5 md:m-10 lg:m-10">
+                <Image src="/blockchain.png" alt="Secure Transactions" width={620} height={640} />
               </div>
             </div>
           </div>
         </div>
+
       </div>
 
-      <div className="min-h-screen flex flex-col justify-center items-center">
-        <div className="text-center space-y-5 ">
-          <div className="mt-20 lg:mt-35 text-white text-[50px] font-pacifico">
+
+
+      <div className="flex flex-col justify-center items-center my-20">
+        <div className="text-center">
+          <div className="text-white text-[50px] font-pacifico">
             Then what are you waiting for
           </div>
-          <div className="text-white text-3xl font-anton tracking-2xl">
+          <div className="text-white text-3xl font-anton tracking-2xl pb-10">
             Start Trading with CryptoXAI
           </div>
-          <button className="bg-yellow-500 text-white py-2 px-6 rounded-3xl hover:bg-white hover:text-black  transition duration-300">
-            Let&apos;s Go
-          </button>
+          <Link
+            href="/signup"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-yellow-500 px-6 py-3 text-lg font-semibold text-white transition-all duration-300 hover:bg-yellow-400 hover:shadow-lg hover:text-black md:text-xl"
+          >
+            <span>Let&apos;s Go</span>
+            <ArrowBigRightIcon className="w-6 h-6" />
+          </Link>
         </div>
       </div>
+
+
 
 
       <footer className="mt-4 bg-gradient-to-r from-indigo-900 from-30% to-purple-900  py-8 pb-4 text-white">
