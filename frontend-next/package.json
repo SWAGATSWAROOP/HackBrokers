@@ -1,5 +1,5 @@
 {
-  "name": "HackBrokers",
+  "name": "hackbrokers",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,6 +24,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "ethers": "^6.12.2",
+    "hardhat": "^2.22.5",
     "lucide-react": "^0.363.0",
     "micro-cors": "^0.1.1",
     "nanoid": "^5.0.6",
@@ -38,6 +39,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@types/bcrypt": "^5.0.2",
     "@types/micro-cors": "^0.1.5",
     "@types/node": "^20",
