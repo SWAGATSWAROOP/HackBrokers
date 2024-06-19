@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cryptoxaideployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cryptoxai
+  template:
+    metadata:
+      labels:
+        app: cryptoxai
+    spec:
+      containers:
+      - name: cryptoapp
+        image: sanghrakshit/cryptoxai
+        ports:
+        - containerPort: 30007
+      - name: pluginbackend
+        image: sanghrakshit/pluginbackend
+        ports:
+         - containerPort: 30008
