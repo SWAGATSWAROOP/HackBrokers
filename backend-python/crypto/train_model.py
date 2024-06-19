@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestRegressor
 import pickle 
 import os
 from datetime import datetime 
-crypto = [ 'BTC', 'ETH', 'SOL', 'USDT', 'BNB']
+crypto = ['BTC', 'ETH', 'SOL', 'USDT', 'BNB']
 
 for type in crypto:
     if os.path.exists(type + '.csv'):

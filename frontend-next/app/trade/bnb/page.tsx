@@ -9,7 +9,9 @@ import Account from "../../artifacts/contracts/account.sol/Account.json";
 export default function BNBCard() {
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState("");
-
+  const [probabilityIncrease, setProbabilityIncrease] = useState(0.5);
+  const [probabilityDecrease, setProbabilityDecrease] = useState(0.5);
+  const [loading, setLoading] = useState(true); 
   useEffect(() => {
     const fetchImage = async () => {
       console.log("Change occured");
@@ -36,8 +38,12 @@ export default function BNBCard() {
         );
         console.log(res);
         setImageUrl(res.data.secure_url);
+        setProbabilityIncrease(res.data.probability_increase);
+        setProbabilityDecrease(res.data.probability_decrease);
       } catch (error) {
         console.error("Error fetching image:", error);
+      } finally {
+        setLoading(false);  
       }
     };
 
@@ -97,6 +103,15 @@ export default function BNBCard() {
   }
 
   return (
+    <>{loading ? (
+      <div className="flex items-center justify-center h-screen">
+        <div className="loader flex flex-col items-center space-y-2">
+          <div className="w-8 h-8 border-4 border-t-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+          <span className="text-lg text-blue-100 text-center">Analysing and Predicting <br />Future Trends ...</span>
+        </div>
+      </div>
+    ) :
+      (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-pink-700 from-30% via-purple-900 to-indigo-900">
       <div className="w-full bg-gradient-to-r from-pink-700 via-purple-900 to-indigo-900 py-4 text-center font-serif text-3xl font-bold text-white">
         Crypto Analyzer
@@ -136,7 +151,7 @@ export default function BNBCard() {
                 placeholder="Enter the number of crypto"
                 className="w-80 rounded-lg p-5"
                 type="number"
-              />
+                />
             </div>
           </div>
         </div>
@@ -146,13 +161,13 @@ export default function BNBCard() {
             <div className="flex items-center self-start rounded-lg bg-green-600 pb-2 pl-6 pr-6 pt-2 hover:bg-green-500">
               <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
               <h1 className="pl-4 text-white">
-                <strong>0.4288%</strong>
+                <strong>{probabilityIncrease} %</strong>
               </h1>
             </div>
             <div className="flex items-center self-start rounded-lg bg-red-600 pb-2 pl-6 pr-6 pt-2 hover:bg-red-500">
               <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
               <h1 className="pl-4 text-white">
-                <strong>0.5712%</strong>
+                <strong>{probabilityDecrease} %</strong>
               </h1>
             </div>
           </div>
@@ -172,6 +187,7 @@ export default function BNBCard() {
           </div>
         </div>
       </div>
-    </div>
+    </div>)}
+    </>
   );
 }

@@ -1,5 +1,4 @@
-import os
-import time 
+import os 
 from flask import Flask, request, render_template
 import cloudinary
 import cloudinary.uploader
@@ -77,7 +76,15 @@ def upload():
     img = image_generate(Type, days)
     response = cloudinary.uploader.upload(img)
     print(response)
-    secure_url_json = json.dumps({'secure_url': response['secure_url']})
+    file_path = "probabilities_" + str(Type) + '.csv'
+    if os.path.exists(file_path):
+        df = pd.read_csv(file_path)
+        probability_increase = round(df.iloc[0]['Probability of Increase'], 4)
+        probability_decrease = round(df.iloc[0]['Probability of Decrease'], 4)
+    else:
+        probability_decrease = 0.603
+        probability_increase = 0.396
+    secure_url_json = json.dumps({'secure_url': response['secure_url'], 'probability_increase' : probability_increase, 'probability_decrease' : probability_decrease})
     return secure_url_json
 
 @app.route('/train_model')
@@ -86,4 +93,5 @@ def schedule_model_training():
     return "Model is successfully trained again"
 
 if __name__ == '__main__': 
+    
     app.run(port=5000, debug=True)
