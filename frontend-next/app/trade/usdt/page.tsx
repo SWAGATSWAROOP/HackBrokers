@@ -12,6 +12,8 @@ export default function BitcoinCard() {
   const [imageUrl, setImageUrl] = useState("");
   const [probabilityIncrease, setProbabilityIncrease] = useState(0.5);
   const [probabilityDecrease, setProbabilityDecrease] = useState(0.5);
+  
+  const [loading, setLoading] = useState(true); 
   useEffect(() => {
     const fetchImage = async () => {
       try {
@@ -41,6 +43,8 @@ export default function BitcoinCard() {
         setProbabilityDecrease(res.data.probability_decrease);
       } catch (error) {
         console.error("Error fetching image:", error);
+      } finally {
+        setLoading(false);  
       }
     };
 
@@ -100,6 +104,15 @@ export default function BitcoinCard() {
   }
 
   return (
+    <>{loading ? (
+      <div className="flex items-center justify-center h-screen">
+        <div className="loader flex flex-col items-center space-y-2">
+          <div className="w-8 h-8 border-4 border-t-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+          <span className="text-lg text-blue-100 text-center">Analysing and Predicting <br />Future Trends ...</span>
+        </div>
+      </div>
+    ) :
+      (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-pink-700 from-30% via-purple-900 to-indigo-900">
       <div className="w-full bg-gradient-to-r from-pink-700 via-purple-900 to-indigo-900 py-4 text-center font-serif text-3xl font-bold text-white">
         Crypto Analyzer
@@ -144,7 +157,7 @@ export default function BitcoinCard() {
                 <button
                   className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
                   onClick={buy}
-                >
+                  >
                   BUY
                 </button>
                 <button
@@ -175,6 +188,7 @@ export default function BitcoinCard() {
           </div>
         </div>
       </div>
-    </div>
+    </div>)}
+  </>
   );
 }
