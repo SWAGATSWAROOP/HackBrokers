@@ -129,11 +129,11 @@ export default function Nav() {
 
       <div className="flex flex-col justify-center items-center my-20">
         <div className="text-center">
-          <div className="text-white text-[50px] font-pacifico">
+          <div className="text-white text-[50px] font-pacifico pb-5">
             Then what are you waiting for
           </div>
           <div className="text-white text-3xl font-anton tracking-2xl pb-10">
-            Start Trading with CryptoXAI
+            Start Trading with CRYPTOxAI
           </div>
           <Link
             href="/signup"
