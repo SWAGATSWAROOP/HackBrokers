@@ -9,7 +9,8 @@ import Account from "../../artifacts/contracts/account.sol/Account.json";
 export default function BNBCard() {
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState("");
-
+  const [probabilityIncrease, setProbabilityIncrease] = useState(0.5);
+  const [probabilityDecrease, setProbabilityDecrease] = useState(0.5);
   useEffect(() => {
     const fetchImage = async () => {
       console.log("Change occured");
@@ -36,6 +37,8 @@ export default function BNBCard() {
         );
         console.log(res);
         setImageUrl(res.data.secure_url);
+        setProbabilityIncrease(res.data.probability_increase);
+        setProbabilityDecrease(res.data.probability_decrease);
       } catch (error) {
         console.error("Error fetching image:", error);
       }
@@ -146,13 +149,13 @@ export default function BNBCard() {
             <div className="flex items-center self-start rounded-lg bg-green-600 pb-2 pl-6 pr-6 pt-2 hover:bg-green-500">
               <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
               <h1 className="pl-4 text-white">
-                <strong>0.4288%</strong>
+                <strong>{probabilityIncrease} %</strong>
               </h1>
             </div>
             <div className="flex items-center self-start rounded-lg bg-red-600 pb-2 pl-6 pr-6 pt-2 hover:bg-red-500">
               <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
               <h1 className="pl-4 text-white">
-                <strong>0.5712%</strong>
+                <strong>{probabilityDecrease} %</strong>
               </h1>
             </div>
           </div>
