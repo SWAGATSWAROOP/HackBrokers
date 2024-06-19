@@ -67,7 +67,7 @@ export default function BitcoinCard() {
             <div className="mb-2 text-center text-xl font-bold">USDT</div>
             <p className="text-center text-base text-gray-700">
               Tether is a cryptocurrency stablecoin, launched by the company
-              Tether Limited Inc. in 2014. As of January 2024, Tether's website
+              Tether Limited Inc. in 2014. As of January 2024,the website
               lists fourteen protocols and blockchains on which Tether has been
               minted. Tether has been criticized for a lack of transparency and
               verifiability of its claimed fiat reserves.
