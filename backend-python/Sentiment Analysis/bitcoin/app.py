@@ -14,8 +14,7 @@ def read_probabilities_from_csv(file_path):
 @app.route('/')
 def index():
     # Read probabilities from CSV file
-    probability_decrease, probability_increase = read_probabilities_from_csv('probabilities.csv')
-    
+    probability_decrease, probability_increase = read_probabilities_from_csv('probabilities_btc.csv')
     # Render HTML template with probabilities passed as variables
     return render_template('index.html', prob_decrease=probability_decrease, prob_increase=probability_increase)
 
