@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { ethers } from "ethers";
-import Account from "../../contracts/account.sol/Account.json";
 import { contract } from "@/lib/constant";
 
 export default function ETHCARD() {
@@ -30,24 +28,17 @@ export default function ETHCARD() {
   //   fetchImage();
   // }, [days]);
 
-  // async function buy() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.buy(email, 0, "Etherium", 0);
-  //   await createUser.wait();
-  // }
+  async function buy() {
+    const email = sessionStorage.getItem("email");
+    const createUser = await contract.buy(email, 0, "Etherium", 0);
+    await createUser.wait();
+  }
 
-  // async function sell() {
-  //   let provider = new ethers.JsonRpcProvider();
-  //   let signer = await provider.getSigner();
-  //   let contract = new ethers.Contract(
-  //     "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-  //     Account.abi,
-  //     signer,
-  //   );
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.sell(email, "Etherium", 0, 0);
-  //   await createUser.wait();
-  // }
+  async function sell() {
+    const email = sessionStorage.getItem("email");
+    const createUser = await contract.sell(email, "Etherium", 0, 0);
+    await createUser.wait();
+  }
 
   return (
     <>
@@ -67,7 +58,7 @@ export default function ETHCARD() {
               <option value={365}>365 Days</option>
             </select>
             <div className="flex w-full justify-center p-3 md:w-2/3 lg:w-1/2">
-            {/* <img
+              {/* <img
                 src={imageUrl}
                 alt="Ethereum Image"
                 className="h-auto w-full rounded"
@@ -93,13 +84,13 @@ export default function ETHCARD() {
                 <div className="mt-4 flex space-x-4">
                   <button
                     className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
-                    // onClick={buy}
+                    onClick={buy}
                   >
                     Buy
                   </button>
                   <button
                     className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base"
-                    // onClick={sell}
+                    onClick={sell}
                   >
                     Sell
                   </button>
