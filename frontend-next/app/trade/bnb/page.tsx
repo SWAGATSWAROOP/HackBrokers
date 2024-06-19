@@ -7,11 +7,10 @@ import { useSession } from "next-auth/react";
 import { contract } from "@/lib/constant";
 
 export default function BNBCard() {
-  const ref = useRef(null);
   const [days, setDays] = useState(7);
-  // const [imageUrl, setImageUrl] = useState(
-  //   "https://res.cloudinary.com/djtudleky/image/upload/v1717474425/bzpmv6wreqw1zd5lrced.png",
-  // );
+  const [imageUrl, setImageUrl] = useState(
+    "https://res.cloudinary.com/djtudleky/image/upload/v1717474425/bzpmv6wreqw1zd5lrced.png",
+  );
 
   // useEffect(() => {
   //   const fetchImage = async () => {
@@ -31,17 +30,25 @@ export default function BNBCard() {
   // }, [days]);
 
   async function buy() {
-    const session = useSession();
-    const email = sessionStorage.getItem("email");
-    const createUser = await contract.buy(email, 0, "BNB", 0);
-    await createUser.wait();
+    try {
+      const email = sessionStorage.getItem("email");
+      const createUser = await contract.buy(email, 0, "ETH", 0);
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
   }
 
   async function sell() {
-    const email = sessionStorage.getItem("email");
-    const createUser = await contract.sell(email, "BNB", 0, 0);
-    await createUser.wait();
+    try {
+      const email = sessionStorage.getItem("email");
+      const createUser = await contract.sell(email, "ETH", 0, 0);
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
   }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-pink-700 from-30% via-purple-900 to-indigo-900">
       <div className="w-full bg-gradient-to-r from-pink-700 via-purple-900 to-indigo-900 py-4 text-center font-serif text-3xl font-bold text-white">

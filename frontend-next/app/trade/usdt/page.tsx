@@ -28,15 +28,23 @@ export default function BitcoinCard() {
   // }, [days]);
 
   async function buy() {
-    const email = sessionStorage.getItem("email");
-    const createUser = await contract.buy(email, 0, "USDT", 0);
-    await createUser.wait();
+    try {
+      const email = sessionStorage.getItem("email");
+      const createUser = await contract.buy(email, 0, "ETH", 0);
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
   }
 
   async function sell() {
-    const email = sessionStorage.getItem("email");
-    const createUser = await contract.sell(email, "USDT", 0, 0);
-    await createUser.wait();
+    try {
+      const email = sessionStorage.getItem("email");
+      const createUser = await contract.sell(email, "ETH", 0, 0);
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
   }
 
   return (
