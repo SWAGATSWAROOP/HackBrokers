@@ -36,7 +36,7 @@ export default function HomeNavbar() {
               <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
             </Link>
             <Link
-              href="#about"
+              href="https://drive.google.com/file/d/1X6gnck4XwoY7YGqPxe3ReztPepbUo5oi/view"
               className="relative group font-serif text-white transition duration-300 ease-in-out transform hover:scale-105"
             >
               About

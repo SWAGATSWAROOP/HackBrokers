@@ -67,7 +67,7 @@ export default function BitcoinCard() {
             <div className="mb-2 text-center text-xl font-bold">USDT</div>
             <p className="text-center text-base text-gray-700">
               Tether is a cryptocurrency stablecoin, launched by the company
-              Tether Limited Inc. in 2014. As of January 2024, Tether's website
+              Tether Limited Inc. in 2014. As of January 2024,the website
               lists fourteen protocols and blockchains on which Tether has been
               minted. Tether has been criticized for a lack of transparency and
               verifiability of its claimed fiat reserves.
@@ -101,13 +101,13 @@ export default function BitcoinCard() {
             <div className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base">
               <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
               <h1 className="pl-5 text-white">
-                <strong>0.56%</strong>
+                <strong>0.4644%</strong>
               </h1>
             </div>
             <div className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base">
               <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
               <h1 className="pl-4 text-white">
-                <strong>0.44%</strong>
+                <strong>0.5356%</strong>
               </h1>
             </div>
           </div>

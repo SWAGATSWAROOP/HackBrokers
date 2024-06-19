@@ -93,13 +93,13 @@ export default function BNBCard() {
             <div className="flex items-center self-start rounded-lg bg-green-600 pb-2 pl-6 pr-6 pt-2 hover:bg-green-500">
               <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
               <h1 className="pl-4 text-white">
-                <strong>0.2415%</strong>
+                <strong>0.4288%</strong>
               </h1>
             </div>
             <div className="flex items-center self-start rounded-lg bg-red-600 pb-2 pl-6 pr-6 pt-2 hover:bg-red-500">
               <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
               <h1 className="pl-4 text-white">
-                <strong>0.7585%</strong>
+                <strong>0.5712%</strong>
               </h1>
             </div>
           </div>
