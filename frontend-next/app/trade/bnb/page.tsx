@@ -12,23 +12,16 @@ export default function BNBCard() {
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState(
     "https://res.cloudinary.com/djtudleky/image/upload/v1718522325/ch0mucgbx6dzn1a6op4q.png",
-  );
-  const images = ["https://res.cloudinary.com/djtudleky/image/upload/v1718522404/jmdcev2vxwtlx2fqscxu.png", "https://res.cloudinary.com/djtudleky/image/upload/v1718522450/gn1pgelldu2u1xop3vzw.png", "https://res.cloudinary.com/djtudleky/image/upload/v1718522325/ch0mucgbx6dzn1a6op4q.png"]
+  ); 
   useEffect(() => {
     const fetchImage = async () => {
       console.log("Change occured");
       try {
-        // const res = await axios.get(
-        //   `http://127.0.0.1:5000/upload?days=${days}&type=bnb`,
-        // );
-        // console.log(res);
-        // setImageUrl(res.data.secure_url);
-        if(days === 7)
-          setImageUrl(images[0]);
-          else if(days === 30)
-            setImageUrl(images[1]);
-          else  
-            setImageUrl(images[2]);
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=${days}&type=bnb`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url); 
       } catch (error) {
         console.error("Error fetching image:", error);
       }
@@ -116,11 +109,11 @@ export default function BNBCard() {
             <div className="flex w-1/2 ml-35 flex-row justify-around">
               <div className="flex items-center justify-center rounded-sm bg-green-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.2680 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.3200 %</strong></h1>
               </div>
               <div className="flex items-center justify-center rounded-sm bg-red-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.7320 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.6800 %</strong></h1>
               </div>
             </div>
             <div className="flex w-1/2 flex-row justify-around">

@@ -106,11 +106,11 @@ export default function SOLCard() {
             <div className="flex w-1/2 ml-35 flex-row justify-around">
               <div className="flex items-center justify-center rounded-xl bg-green-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.3399 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.4800 %</strong></h1>
               </div>
               <div className="flex items-center justify-center rounded-xl bg-red-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.6601 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.5200 %</strong></h1>
               </div>
             </div>
             <div className="flex w-1/2 flex-row justify-around">

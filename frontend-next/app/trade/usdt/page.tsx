@@ -10,20 +10,13 @@ export default function BitcoinCard() {
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState(
     "https://res.cloudinary.com/djtudleky/image/upload/v1718522779/plrmm6qomxevsybl5bkf.png",
-  );
-  const images = ["https://res.cloudinary.com/djtudleky/image/upload/v1718522779/plrmm6qomxevsybl5bkf.png", "https://res.cloudinary.com/djtudleky/image/upload/v1718522792/oxjbr4r50bxnynfodmzp.png", "https://res.cloudinary.com/djtudleky/image/upload/v1718522818/mrnveg0evggfbnwxdmtf.png"]
+  ); 
 
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        // const res = await axios.get(`http://127.0.0.1:5000/upload?days=${days}&type=usdt`);
-        // setImageUrl(res.data.secure_url);
-        if(days === 7)
-          setImageUrl(images[0]);
-          else if(days === 30)
-            setImageUrl(images[1]);
-          else  
-            setImageUrl(images[2]);
+        const res = await axios.get(`http://127.0.0.1:5000/upload?days=${days}&type=usdt`);
+        setImageUrl(res.data.secure_url); 
       } catch (error) {
         console.error("Error fetching image:", error);
       }
@@ -109,11 +102,11 @@ export default function BitcoinCard() {
             <div className="flex w-1/2 ml-35 flex-row justify-around">
               <div className="flex items-center justify-center rounded-sm bg-green-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.5553 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.6500 %</strong></h1>
               </div>
               <div className="flex items-center justify-center rounded-sm bg-red-500 pb-2 pl-6 pr-6 pt-2">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
-                <h1 className="pl-4 text-white "><strong> 0.4447 %</strong></h1>
+                <h1 className="pl-4 text-white "><strong> 0.3500 %</strong></h1>
               </div>
             </div>
             <div className="flex w-1/2 flex-row justify-around">
