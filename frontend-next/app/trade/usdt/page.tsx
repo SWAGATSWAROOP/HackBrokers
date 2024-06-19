@@ -4,7 +4,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { ethers } from "ethers";
-import Account from "@/artifacts/contracts/account.sol/Account.json";
+import Account from "../../artifacts/contracts/account.sol/Account.json";
 
 export default function BitcoinCard() {
   const ref = useRef<HTMLInputElement>(null);

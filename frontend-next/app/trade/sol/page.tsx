@@ -4,7 +4,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { ethers } from "ethers";
-import Account from "@/artifacts/contracts/account.sol/Account.json";
+import Account from "../../artifacts/contracts/account.sol/Account.json";
 
 export default function SOLCard() {
   const [days, setDays] = useState(7);
@@ -42,7 +42,7 @@ export default function SOLCard() {
 
     fetchImage();
   }, []);
-  
+
   async function buy() {
     try {
       const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
