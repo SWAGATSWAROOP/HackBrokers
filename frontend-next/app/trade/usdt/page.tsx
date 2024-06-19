@@ -25,6 +25,7 @@ export default function BitcoinCard() {
 
     fetchImage();
   }, [days]);
+
   useEffect(() => {
     const fetchImage = async () => {
       console.log("Change occured");

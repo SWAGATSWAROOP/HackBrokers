@@ -42,6 +42,7 @@ export default function SOLCard() {
 
     fetchImage();
   }, []);
+  
   async function buy() {
     try {
       const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
