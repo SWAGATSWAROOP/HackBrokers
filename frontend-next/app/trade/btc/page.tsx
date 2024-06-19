@@ -63,8 +63,12 @@ export default function BitcoinCard() {
         Account.abi,
         walletConnected,
       );
-      const email = sessionStorage.getItem("email");
-      const createUser = await contract.buy(email, 0, "BTC", 0);
+      const createUser = await contract.buy(
+        "swagatswaroop@gmail.com",
+        0,
+        "BTC",
+        0,
+      );
       await createUser.wait();
     } catch (error) {
       console.log("Error");
@@ -85,8 +89,12 @@ export default function BitcoinCard() {
         Account.abi,
         walletConnected,
       );
-      const email = sessionStorage.getItem("email");
-      const createUser = await contract.sell(email, "BTC", 0, 0);
+      const createUser = await contract.sell(
+        "swagatswaroop@gmail.com",
+        "BTC",
+        0,
+        0,
+      );
       await createUser.wait();
     } catch (error) {
       console.log("Error");

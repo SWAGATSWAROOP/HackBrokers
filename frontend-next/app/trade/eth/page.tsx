@@ -43,7 +43,7 @@ export default function ETHCARD() {
 
     fetchImage();
   }, []);
- 
+
   async function buy() {
     try {
       const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
@@ -58,8 +58,12 @@ export default function ETHCARD() {
         Account.abi,
         walletConnected,
       );
-      const email = sessionStorage.getItem("email");
-      const createUser = await contract.buy(email, 0, "ETH", 0);
+      const createUser = await contract.buy(
+        "swagatswaroop@gmail.com",
+        0,
+        "ETH",
+        0,
+      );
       await createUser.wait();
     } catch (error) {
       console.log("Error");
@@ -80,8 +84,13 @@ export default function ETHCARD() {
         Account.abi,
         walletConnected,
       );
-      const email = sessionStorage.getItem("email");
-      const createUser = await contract.sell(email, "ETH", 0, 0);
+
+      const createUser = await contract.sell(
+        "swagatswaroop@gmail.com",
+        "ETH",
+        0,
+        0,
+      );
       await createUser.wait();
     } catch (error) {
       console.log("Error");

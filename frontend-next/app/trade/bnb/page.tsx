@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { useSession } from "next-auth/react";
 import { ethers } from "ethers";
 import Account from "@/artifacts/contracts/account.sol/Account.json";
 
@@ -59,8 +58,12 @@ export default function BNBCard() {
         Account.abi,
         walletConnected,
       );
-      const email = sessionStorage.getItem("email");
-      const createUser = await contract.buy(email, 0, "BNB", 0);
+      const createUser = await contract.buy(
+        "swagatswaroop@gmail.com",
+        0,
+        "BNB",
+        0,
+      );
       await createUser.wait();
     } catch (error) {
       console.log("Error");
@@ -81,8 +84,12 @@ export default function BNBCard() {
         Account.abi,
         walletConnected,
       );
-      const email = sessionStorage.getItem("email");
-      const createUser = await contract.sell(email, "BNB", 0, 0);
+      const createUser = await contract.sell(
+        "swagatswaroop@gmail.com",
+        "BNB",
+        0,
+        0,
+      );
       await createUser.wait();
     } catch (error) {
       console.log("Error");

@@ -56,8 +56,12 @@ export default function SOLCard() {
         Account.abi,
         walletConnected,
       );
-      const email = sessionStorage.getItem("email");
-      const createUser = await contract.buy(email, 0, "SOL", 0);
+      const createUser = await contract.buy(
+        "swagatswaroop@gmail.com",
+        0,
+        "SOL",
+        0,
+      );
       await createUser.wait();
     } catch (error) {
       console.log("Error");
@@ -78,8 +82,12 @@ export default function SOLCard() {
         Account.abi,
         walletConnected,
       );
-      const email = sessionStorage.getItem("email");
-      const createUser = await contract.sell(email, "SOL", 0, 0);
+      const createUser = await contract.sell(
+        "swagatswaroop@gmail.com",
+        "SOL",
+        0,
+        0,
+      );
       await createUser.wait();
     } catch (error) {
       console.log("Error");
@@ -108,7 +116,7 @@ export default function SOLCard() {
                 src={imageUrl}
                 alt="SOL Image"
                 className="h-auto w-full rounded"
-              /> 
+              />
             </div>
             <div className="w-full px-6 py-4 md:w-1/3 lg:w-1/2">
               <div className="mb-2 text-center text-xl font-bold">BNB:</div>

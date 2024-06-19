@@ -41,7 +41,7 @@ export default function BitcoinCard() {
 
     fetchImage();
   }, []);
-  
+
   async function buy() {
     try {
       const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
@@ -56,8 +56,12 @@ export default function BitcoinCard() {
         Account.abi,
         walletConnected,
       );
-      const email = sessionStorage.getItem("email");
-      const createUser = await contract.buy(email, 0, "USDT", 0);
+      const createUser = await contract.buy(
+        "swagatswaroop@gmail.com",
+        0,
+        "USDT",
+        0,
+      );
       await createUser.wait();
     } catch (error) {
       console.log("Error");
@@ -78,8 +82,12 @@ export default function BitcoinCard() {
         Account.abi,
         walletConnected,
       );
-      const email = sessionStorage.getItem("email");
-      const createUser = await contract.sell(email, "USDT", 0, 0);
+      const createUser = await contract.sell(
+        "swagatswaroop@gmail.com",
+        "USDT",
+        0,
+        0,
+      );
       await createUser.wait();
     } catch (error) {
       console.log("Error");
@@ -109,7 +117,7 @@ export default function BitcoinCard() {
               width={2000}
               height={1000}
               className="rounded"
-            /> 
+            />
           </div>
           <div className="w-full px-6 py-4 md:w-1/3 lg:w-1/2">
             <div className="mb-2 text-center text-xl font-bold">USDT</div>
