@@ -9,7 +9,8 @@ import Account from "../../artifacts/contracts/account.sol/Account.json";
 export default function ETHCARD() {
   const [days, setDays] = useState(7);
   const [imageUrl, setImageUrl] = useState("");
-
+  const [probabilityIncrease, setProbabilityIncrease] = useState(0.5);
+  const [probabilityDecrease, setProbabilityDecrease] = useState(0.5);
   useEffect(() => {
     const fetchImage = async () => {
       console.log("Change occurred");
@@ -36,6 +37,8 @@ export default function ETHCARD() {
         );
         console.log(res);
         setImageUrl(res.data.secure_url);
+        setProbabilityIncrease(res.data.probability_increase);
+        setProbabilityDecrease(res.data.probability_decrease);
       } catch (error) {
         console.error("Error fetching image:", error);
       }
@@ -161,13 +164,13 @@ export default function ETHCARD() {
               <div className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base">
                 <FontAwesomeIcon icon={faArrowUp} size="2x" color="white" />
                 <h1 className="pl-4 text-white">
-                  <strong>0.4576%</strong>
+                  <strong>{probabilityIncrease} %</strong>
                 </h1>
               </div>
               <div className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base">
                 <FontAwesomeIcon icon={faArrowDown} size="2x" color="white" />
                 <h1 className="pl-4 text-white">
-                  <strong>0.5424%</strong>
+                  <strong>{probabilityDecrease} %</strong>
                 </h1>
               </div>
             </div>
