@@ -7,43 +7,58 @@ import { contract } from "@/lib/constant";
 
 export default function BitcoinCard() {
   const [days, setDays] = useState(7);
-  const [imageUrl, setImageUrl] = useState(
-    "https://res.cloudinary.com/djtudleky/image/upload/v1717468043/ogib3zfczrxpyfeo6mod.png",
-  );
+  const [imageUrl, setImageUrl] = useState("");
 
   const data = {
     desc: 12,
     inc: 23,
   };
 
-  // useEffect(() => {
-  //   const fetchImage = async () => {
-  //     console.log("Change occurred");
-  //     try {
-  //       const res = await axios.get(
-  //         `http://127.0.0.1:5000/upload?days=${days}&type=btc`,
-  //       );
-  //       console.log(res);
-  //       setImageUrl(res.data.secure_url);
-  //     } catch (error) {
-  //       console.error("Error fetching image:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchImage = async () => {
+      console.log("Change occurred");
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=${days}&type=btc`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
 
-  //   fetchImage();
-  // }, [days]);
+    fetchImage();
+  }, [days]);
 
-  async function buy() {
-    const email = sessionStorage.getItem("email");
-    const createUser = await contract.buy(email, 0, "BTC", 0);
-    await createUser.wait();
-  }
+  useEffect(() => {
+    const fetchImage = async () => {
+      console.log("Change occured");
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/upload?days=7&type=btc`,
+        );
+        console.log(res);
+        setImageUrl(res.data.secure_url);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
 
-  async function sell() {
-    const email = sessionStorage.getItem("email");
-    const createUser = await contract.sell(email, "BTC", 0, 0);
-    await createUser.wait();
-  }
+    fetchImage();
+  }, []);
+
+  // async function buy() {
+  //   const email = sessionStorage.getItem("email");
+  //   const createUser = await contract.buy(email, 0, "BTC", 0);
+  //   await createUser.wait();
+  // }
+
+  // async function sell() {
+  //   const email = sessionStorage.getItem("email");
+  //   const createUser = await contract.sell(email, "BTC", 0, 0);
+  //   await createUser.wait();
+  // }
 
   return (
     <>
@@ -88,13 +103,13 @@ export default function BitcoinCard() {
                 <div className="mt-4 flex space-x-4">
                   <button
                     className="rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
-                    onClick={buy}
+                    // onClick={buy}
                   >
                     Buy
                   </button>
                   <button
                     className="rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base"
-                    onClick={sell}
+                    // onClick={sell}
                   >
                     Sell
                   </button>
