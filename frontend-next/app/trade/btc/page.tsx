@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { contract } from "@/lib/constant";
+import { ethers } from "ethers";
+import Account from "@/artifacts/contracts/account.sol/Account.json";
 
 export default function BitcoinCard() {
   const [days, setDays] = useState(7);
@@ -59,6 +60,49 @@ export default function BitcoinCard() {
   //   const createUser = await contract.sell(email, "BTC", 0, 0);
   //   await createUser.wait();
   // }
+  async function buy() {
+    try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
+      const email = sessionStorage.getItem("email");
+      const createUser = await contract.buy(email, 0, "BTC", 0);
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
+  }
+
+  async function sell() {
+    try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
+      const email = sessionStorage.getItem("email");
+      const createUser = await contract.sell(email, "BTC", 0, 0);
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
+  }
 
   return (
     <>
@@ -103,13 +147,13 @@ export default function BitcoinCard() {
                 <div className="mt-4 flex space-x-4">
                   <button
                     className="rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
-                    // onClick={buy}
+                    onClick={buy}
                   >
                     Buy
                   </button>
                   <button
                     className="rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base"
-                    // onClick={sell}
+                    onClick={sell}
                   >
                     Sell
                   </button>

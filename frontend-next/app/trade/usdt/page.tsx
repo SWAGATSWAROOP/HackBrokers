@@ -3,7 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { contract } from "@/lib/constant";
+import { ethers } from "ethers";
+import Account from "@/artifacts/contracts/account.sol/Account.json";
 
 export default function BitcoinCard() {
   const ref = useRef<HTMLInputElement>(null);
@@ -51,6 +52,49 @@ export default function BitcoinCard() {
   //   const createUser = await contract.sell(email, "USDT", 0, 0);
   //   await createUser.wait();
   // }
+  async function buy() {
+    try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
+      const email = sessionStorage.getItem("email");
+      const createUser = await contract.buy(email, 0, "USDT", 0);
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
+  }
+
+  async function sell() {
+    try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
+      const email = sessionStorage.getItem("email");
+      const createUser = await contract.sell(email, "USDT", 0, 0);
+      await createUser.wait();
+    } catch (error) {
+      console.log("Error");
+    }
+  }
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-pink-700 from-30% via-purple-900 to-indigo-900">
@@ -96,13 +140,13 @@ export default function BitcoinCard() {
               <div className="mt-4 flex space-x-4">
                 <button
                   className="flex items-center self-start rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-green-500 md:text-base"
-                  // onClick={buy}
+                  onClick={buy}
                 >
                   BUY
                 </button>
                 <button
                   className="flex items-center self-start rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-500 md:text-base"
-                  // onClick={sell}
+                  onClick={sell}
                 >
                   SELL
                 </button>
