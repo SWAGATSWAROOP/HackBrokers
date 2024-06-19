@@ -45,20 +45,6 @@ export default function BNBCard() {
     fetchImage();
   }, []);
 
-
-  // async function buy() {
-  //   const session = useSession();
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.buy(email, 0, "BNB", 0);
-  //   await createUser.wait();
-  // }
-
-  // async function sell() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.sell(email, "BNB", 0, 0);
-  //   await createUser.wait();
-  // }
-
   async function buy() {
     try {
       const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);

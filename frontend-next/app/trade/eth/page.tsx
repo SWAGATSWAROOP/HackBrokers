@@ -43,17 +43,7 @@ export default function ETHCARD() {
 
     fetchImage();
   }, []);
-  // async function buy() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.buy(email, 0, "ETH", 0);
-  //   await createUser.wait();
-  // }
-
-  // async function sell() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.sell(email, "ETH", 0, 0);
-  //   await createUser.wait();
-  // }
+ 
   async function buy() {
     try {
       const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);

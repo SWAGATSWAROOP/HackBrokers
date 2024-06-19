@@ -41,17 +41,7 @@ export default function BitcoinCard() {
 
     fetchImage();
   }, []);
-  // async function buy() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.buy(email, 0, "USDT", 0);
-  //   await createUser.wait();
-  // }
-
-  // async function sell() {
-  //   const email = sessionStorage.getItem("email");
-  //   const createUser = await contract.sell(email, "USDT", 0, 0);
-  //   await createUser.wait();
-  // }
+  
   async function buy() {
     try {
       const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
