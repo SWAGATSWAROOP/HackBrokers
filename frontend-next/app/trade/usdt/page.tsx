@@ -3,7 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { contract } from "@/lib/constant";
+import { ethers } from "ethers";
+import Account from "@/artifacts/contracts/account.sol/Account.json";
 
 export default function BitcoinCard() {
   const ref = useRef<HTMLInputElement>(null);
@@ -29,8 +30,20 @@ export default function BitcoinCard() {
 
   async function buy() {
     try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
       const email = sessionStorage.getItem("email");
-      const createUser = await contract.buy(email, 0, "ETH", 0);
+      const createUser = await contract.buy(email, 0, "USDT", 0);
       await createUser.wait();
     } catch (error) {
       console.log("Error");
@@ -39,8 +52,20 @@ export default function BitcoinCard() {
 
   async function sell() {
     try {
+      const sepoliaUrl = String(process.env.SEPOLIA_RPC_URL);
+      const address = String(process.env.CONTRACT_ADDRESS);
+      const provider = new ethers.JsonRpcProvider(sepoliaUrl);
+      const privateKey = String(process.env.PRIVATE_KEY);
+      const wallet = new ethers.Wallet(privateKey);
+      const walletConnected = wallet.connect(provider);
+
+      const contract = new ethers.Contract(
+        address,
+        Account.abi,
+        walletConnected,
+      );
       const email = sessionStorage.getItem("email");
-      const createUser = await contract.sell(email, "ETH", 0, 0);
+      const createUser = await contract.sell(email, "USDT", 0, 0);
       await createUser.wait();
     } catch (error) {
       console.log("Error");
