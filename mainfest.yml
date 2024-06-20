@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cryptoapp
+spec:
+  containers:
+  - name: cryptoapp
+    image: sanghrakshit/cryptoxai
+    ports:
+    - containerPort: 3000
+  - name: pluginbackend
+    image: sanghrakshit/pluginbackend
+    ports:
+    - containerPort: 4000
