@@ -4,7 +4,7 @@
 
 ## Overview
 
-CRYPTOxAI is an innovative cryptocurrency exchange and information platform that integrates artificial intelligence to deliver real-time, up-to-date information about various cryptocurrencies and organizations. By utilizing AI, our application predicts potential changes in cryptocurrency values over the next two days, empowering investors to make informed decisions. Our goal is to provide a unified workspace where investors can track currency progress, predict future trends, and access reliable information about companies and currencies.The lack of a unified workspace for cryptocurrency-related tasks often forces investors to search and analyze information across multiple websites, which can be time-consuming and unreliable. Managing different accounts on various applications adds to the complexity and inconvenience.
+CRYPTOxAI is an innovative cryptocurrency exchange and information platform that integrates artificial intelligence and machine learning to deliver real-time, up-to-date information about various cryptocurrencies and organizations. By utilizing AI, our application predicts potential changes in cryptocurrency values over the next two days, empowering investors to make informed decisions. Our goal is to provide a unified workspace where investors can track currency progress, predict future trends, and access reliable information about companies and currencies.The lack of a unified workspace for cryptocurrency-related tasks often forces investors to search and analyze information across multiple websites, which can be time-consuming and unreliable. Managing different accounts on various applications adds to the complexity and inconvenience.
 
 
 ## Key Features
@@ -25,6 +25,7 @@ CRYPTOxAI is an innovative cryptocurrency exchange and information platform that
 - **Machine Learning**: Random Forest, Gradient Boosting Regressor
 - **Blockchain**: Hardhat, Ethers.js, Solidity
 - **Artificial Intelligence**: OnDemand Plugin with GPT-4 model
+- **DevOps**: Kubernetes, Docker
 
 ## Usage
 
